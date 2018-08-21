@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <link href="__PUBLIC__/statics/hplus/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/animate.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <!--<link href="__PUBLIC__/statics/hplus/css/plugins/treeview/bootstrap-treeview.css" rel="stylesheet">-->
+
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>添加</h5>
+                <div class="ibox-tools btn-group">
+                    <a class="btn" id="_back" href="{:U('Admin/PartyBranch/index')}">
+                        <i class="fa fa-chevron-circle-left"></i><span>返回上一页</span>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <form class="form-horizontal m-t" id="commentForm" method="post" action="{:U('Admin/PartyBranch/add')}">
+                    <input type="hidden" name="department_id" value="{$_SESSION['user']['data']['department_id']}">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">名称：</label>
+                        <div class="col-sm-8">
+                            <input id="name" name="name" minlength="2" type="text" class="form-control" required="" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span class="text-warning">*</span>区域地址</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="address" name="address" errortext="区域地址" class="form-control pull-left mR5" placeholder="请输入区域地址" style="width: 40%;display: inline-block;;" />
+                            <div id="lnglat" class="form-control pull-left" style="width: auto;display: inline-block;cursor: pointer;">选择坐标</div>
+                            <input type="hidden" name="longitude" id="longitude">
+                            <input type="hidden" name="latitude" id="latitude">
+                            <div class="clearfix"></div>
+                            <span class="help-block hide"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">所属单位：</label>
+                        <div class="col-sm-8">
+                            <select id="schoolno" name="managerid"   class="selectpicker" data-live-search="true">
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--    <div class="form-group">
+                        <label class="col-sm-3 control-label">联系电话：</label>
+                        <div class="col-sm-8">
+                            <input id="phone" name="phone" minlength="2" type="phone" class="form-control" required="" aria-required="true">
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">所属组织：</label>
+                        <div class="col-sm-8">
+                            <input type="text" check="select" name="org" errortext="归属组织" popup="singleOrg" class="form-control popup-content-selection form-check" id="org" readonly="readonly" placeholder="请选择组织">
+                            <span class="help-block"><i class="fa fa-times-circle"></i> 请选择归属组织</span>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">指导员：</label>
+                        <div class="col-sm-8">
+                            <select id="managerid" name="managerid" class="form-control" >
+								<volist id="m" name="managers">
+									<option value="{$m.id}">{$m.truename}</option>
+								</volist>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">介绍：</label>
+                        <div class="col-sm-8">
+                            <textarea id="intro" name="intro" class="form-control" aria-required="true"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">公司面貌：</label>
+                        <div class="col-sm-8">
+                            <textarea id="companyface" name="companyface" class="form-control" aria-required="true"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">党员阵地：</label>
+                        <div class="col-sm-8">
+                            <input id="zhendi" name="zhendi"  type="text" class="form-control"  aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">党员活动：</label>
+                        <div class="col-sm-8">
+                            <input id="activity" name="activity"  type="text" class="form-control" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">签到范围：</label>
+                        <div class="col-sm-8">
+                            <input id="signinradius" name="signinradius"  type="text" class="form-control"  aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-3">
+                            <button class="btn btn-primary" type="submit" >提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/statics/hplus/js/jquery.min.js?v=2.1.4"></script>
+<script src="__EASYUI__/ajaxSetup.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/bootstrap.min.js?v=3.3.6"></script>
+
+<script src="__PUBLIC__/statics/hplus/js/content.min.js?v=1.0.0"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/toastr/toastr.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/treeview/bootstrap-treeview.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/layer.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/laydate/laydate.js"></script>
+<script src="__PUBLIC__/statics/js/common.js"></script>
+<script type="text/javascript">
+    var mapurl="{:U('Admin/Index/map')}";
+    var departmenturl="{:U('Admin/Department/ajaxDepartmentAll')}";
+    var mmangerurl="{:U('Admin/PartyManager/ajaxAll')}";
+</script>
+
+<script src="__PUBLIC__/statics/hplus/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/validate/messages_zh.min.js"></script>
+<!--<script src="__PUBLIC__/statics/hplus/js/plugins/validate/extend.js"></script>-->
+<script src="__PUBLIC__/statics/hplus/js/demo/form-validate-demo.min.js"></script>
+<script src="__KINDEDITOR__/kindeditor-all.js"></script>
+<script src="__KINDEDITOR__/lang/zh-CN.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/bootstrap-select.js"></script>
+<link href="__PUBLIC__/statics/hplus/css/bootstrap.min.css" rel="stylesheet" />
+<link href="__PUBLIC__/statics/hplus/css/bootstrap-select.css" rel="stylesheet" />
+
+
+<script>
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('#intro', {
+            allowFileManager : false
+        });
+    });
+    KindEditor.ready(function(K) {
+        editor = K.create('#companyface', {
+            allowFileManager : false
+        });
+    });
+    KindEditor.ready(function(K) {
+        editor = K.create('#zhendi', {
+            allowFileManager : false
+        });
+    });
+    KindEditor.ready(function(K) {
+        editor = K.create('#activity', {
+            allowFileManager : false
+        });
+    });
+</script>
+<script type="text/javascript">
+    $('#lnglat').getLnglat({
+        //$address: $('#address')//20180202改为不设置地址详情
+    }, function($e, data) {
+        if (data) {
+            var res = data.lng + ',' + data.lat;
+           $('#latitude').val(data.lat);
+            $('#longitude').val(data.lng);
+            $e.text('坐标：' + res).data('val', res);
+            //20180202改为不设置地址详情
+            console.log(data.address);
+            $('#address').val(data.address);
+        }
+    });
+
+    $(function(){
+        var schoolno=$('#schoolno');
+        $.ajax({
+            url: mmangerurl,
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                schoolno.empty();
+                schoolno.append("<option value=''>请选择</option>");
+                for (var i = 0; i < data.length; i++) {
+                    schoolno.append("<option value=" + data[i].id + ">" + data[i].name + "</option>");
+                }
+                $('#schoolno').selectpicker('val','');
+                $('#schoolno').selectpicker('refresh');
+            },
+            error: function (data) {
+                alert("查询失败" + data);
+
+            }
+        })
+        $('#schoolno').selectpicker('refresh');
+    });
+</script>
+</body>
+</html>

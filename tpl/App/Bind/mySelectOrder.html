@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>我的订单</title>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=37342703" charset="UTF-8"></script>
+    <link rel="stylesheet" href="__PUBLIC__/statics/frozenui-1.3.0/css/frozen.css">
+    <link rel="stylesheet" href="__PUBLIC__/statics/frozenui-1.3.0/css/demo.css">
+    <script src="__PUBLIC__/statics/frozenui-1.3.0/lib/zepto.min.js"></script>
+    <script src="__PUBLIC__/statics/frozenui-1.3.0/js/frozen.js"></script>
+    <script src="http://lib.sinaapp.com/js/jquery/1.10.1/jquery-1.10.1.min.js"></script>
+</head>
+
+<body ontouchstart>
+<header class="ui-header ui-header-positive ui-border-b">
+    <i class="ui-icon-return" onclick="history.back()"></i><h1>订单 </h1><button class="ui-btn">回首页</button>
+</header>
+<footer class="ui-footer ui-footer-btn">
+
+    <ul class="ui-tiled ui-border-t">
+        <!-- <li data-href="{:U('App/Bind/myOrder',array('wecha_id'=>$wecha_id))}" class="ui-border-r"><div>我的订单</div></li>
+         <li data-href="{:U('App/Bind/mySend',array('wecha_id'=>$wecha_id))}" class="ui-border-r"><div>我要发件</div></li>
+         <li data-href="{:U('App/Bind/myInfo',array('wecha_id'=>$wecha_id))}"><div>个人中心</div></li>-->
+    </ul>
+</footer>
+<section class="ui-container">
+    <section id="list">
+        <div class="demo-item">
+            <div class="ui-form ui-border-t">
+                <!-- <ul class="ui-list ui-list-pure ui-border-b">-->
+                <input type="hidden" name="pageNo" id="pageNo" value="1" />
+                <!-- <ul class="ui-list ui-list-pure ui-border-tb trade-area">-->
+                <ul class="ui-list ui-list-function  ui-border-tb trade-area">
+
+                      <input type="hidden" name="orderno" id="orderno" value="{$data['orderno']}" />
+                    <!--  <input type="hidden" name="receivertel" id="receivertel" value="{$data['receivertel']}" />
+                      <input type="hidden" name="shipper" id="shipper" value="{$data['shipper']}" />
+                      <input type="hidden" name="shippertel" id="shippertel" value="{$data['shippertel']}" />-->
+
+<!--
+                    <volist name="order" id="or">
+                        <li>
+                            <div class="ui-list-info ui-border-t">
+                                <h4 class="ui-nowrap">运单编号：{$or['orderno']}</h4>
+                                <p class="ui-nowrap">
+                                    收件人：{$or['receivername']}<br/>
+                                    收件人电话：{$or['receivertel']} <br/>
+                                    收件人地址：{$or['receiveraddress']} <br/>
+                                    件数：{$or['goodscount']} <br/>
+                                    托运时间：{$or['createdate']} <br/>
+                                    运单状态：{$or['status']}  <br/>
+                                    站点：{$or['sitename']} <br/>
+                                    到站时间：{$or['sitetime']} <br/>
+                                   &lt;!&ndash; 操作:<a  href="{:U('App/Bind/driveRoute')}/cardriveid/{$or['cardriveid']}">轨迹</a>&ndash;&gt;
+                                </p>
+                            </div>
+                        </li>
+                    </volist>-->
+
+                    </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+</section><!-- /.ui-container-->
+<script>
+     $(function(){
+     query('01');//第一次加载
+     });
+    function query(type)
+    {
+        var orderno= $("#orderno").val();
+        /*var receivertel= $("#receivertel").val();
+        var shipper= $("#shipper").val();
+        var shippertel= $("#shippertel").val();*/
+        //console.log(receivername+receivertel+shipper+shippertel);
+        $.ajax({
+            url : "{:U('App/Bind/mySelectOrder1')}",
+            data : {
+                pageNo : $("#pageNo").val(),
+                orderno:orderno
+            },
+            cache : false,
+            success : function(data)
+            {
+                loading=true;
+                if(type=="00") {
+                    if (data.length == 0) {
+                        $("#pageNo").val(parseInt($("#pageNo").val()) - 1);
+                        return "";
+                    }
+                    if (data == null) {
+                        $("#pageNo").val(parseInt($("#pageNo").val()) - 1);
+                    } else {
+                        var content = "";
+                        for (var i = 0; i < data.length; i++) {
+                            var url= "{:U('App/Bind/driveRoute')}/cardriveid/"+data[i].cardriveid+"/wecha_id/"+data[i].wecha_id;
+                            var editurl= "{:U('App/Bind/EditMyOrder')}/id/"+data[i].id+"";    //编辑订单url
+                            var ids="'"+data[i].id+"'";
+                            var status=data[i].status;
+                            var val="";
+                            if(status==0){
+                                val="<span style='color: #4e596b'>已提交</span>";
+                            }else if(status==1){
+                                val="<span style='color: green'>已装车</span>";
+                            }else if(status==2){
+                                val="<span style='color: red'>已到站</span>";
+                            }
+                            content = content
+                                    + ' <li> <div class="ui-list-info ui-border-t"><h4 class="ui-nowrap">订单编号' + data[i].orderno + '</h4>'
+                                    + '<p class="ui-nowrap">收件人：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+data[i].receivername + '<br/>收件人电话：' + data[i].receivertel + '<br/>收件人地址：'
+                                    + data[i].receiveraddress +'<br/>件数：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+data[i].goodscount+'<br/>托运时间：&nbsp;&nbsp;&nbsp;&nbsp;'+data[i].createdate+'<br/>运单状态：&nbsp;&nbsp;&nbsp;&nbsp;'+val+'<br/>站点：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+data[i].sitename+'<br/>到站时间：&nbsp;&nbsp;&nbsp;&nbsp;'+ data[i].sitetime+'</p></div>';
+                        }
+                        $(".trade-area").append(content);
+                    }
+                }else{
+                    var content = "";
+
+                    for (var i = 0; i < data.length; i++) {
+                        var url= "{:U('App/Bind/driveRoute')}/cardriveid/"+data[i].cardriveid+"/wecha_id/"+data[i].wecha_id;//轨迹url
+                        var editurl= "{:U('App/Bind/EditMyOrder')}/id/"+data[i].id+"";    //编辑订单url
+                        var ids="'"+data[i].id+"'";
+                        var status=data[i].status;
+                        var val="";
+                        if(status==0){
+                            val="<span style='color:#4e596b'>已提交</span>";
+                        }else if(status==1){
+                            val="<span style='color: green'>已装车</span>";
+                        }else if(status==2){
+                            val="<span style='color: red'>已到站</span>";
+                        }
+                        content = content
+                                + ' <li> <div class="ui-list-info ui-border-t"><h4 class="ui-nowrap">订单编号' + data[i].orderno + '</h4>'
+                                + '<p class="ui-nowrap">收件人：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+data[i].receivername + '<br/>收件人电话：' + data[i].receivertel + '<br/>收件人地址：'
+                                + data[i].receiveraddress +'<br/>件数：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+data[i].goodscount+'<br/>托运时间：&nbsp;&nbsp;&nbsp;&nbsp;'+data[i].createdate+'<br/>运单状态：&nbsp;&nbsp;&nbsp;&nbsp;'+val+'<br/>站点：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+data[i].sitename+'<br/>到站时间：&nbsp;&nbsp;&nbsp;&nbsp;'+ data[i].sitetime+'</p></div>';
+                    }
+                    $(".trade-area").append(content);
+
+                }
+            },
+            error : function(){
+                loading=true;
+                $("#pageNo").val(parseInt($("#pageNo").val())-1);
+                alert("查询数据出错啦，请刷新再试");
+            }
+        });
+    }
+    var loading=false;
+    Zepto(function($){
+        $(window).scroll(function(){
+            if(($(window).scrollTop()+$(window).height()>$(document).height()-10)&&loading){
+                loading=false;
+                $("#pageNo").val(parseInt($("#pageNo").val())+1);
+                query("00");
+            }
+        });
+    })
+
+    var ua = navigator.userAgent.toLowerCase();
+    if (/android/.test(ua)) {
+        $('.date>div>img:last').css({"margin-left":"-25px"});
+    }
+
+    $('.ui-list li,.ui-tiled li').click(function(){
+        if($(this).data('href')){
+            location.href= $(this).data('href');
+        }
+    });
+    $('.ui-header .ui-btn').click(function(){
+        location.href= "{:U('App/Bind/myInfo',array('wecha_id'=>$wecha_id))}";
+    });
+    function  ab(ids){
+        console.log(ids);
+        var id=ids;
+        $.post("{:U('App/Bind/deleteOrder')}", {"id":id}, function(message){
+            if(message.status==1){
+                alert( message.message);
+            }else {
+                alert( message.message);
+            }
+
+        })
+    }
+    function abc(ids){
+        var id=ids;
+        $.post("{:U('App/Bind/EditMyOrder')}", {"id":id}, function(message){
+            if(message.status==1){
+                alert( message.message);
+            }else {
+                alert( message.message);
+            }
+
+        })
+    }
+
+</script>
+</body>
+</html>

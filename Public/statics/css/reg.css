@@ -1,0 +1,76 @@
+﻿body {
+	background-color: #FFFFFF;
+	font-size: 12px;
+	font-family: Arial,宋体, Helvetica, sans-serif; 
+}
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #000000;
+}
+a:hover {
+	text-decoration: none;
+	color: #FF3300;
+}
+a:active {
+	text-decoration: none;
+	color: #FF3300;
+}
+.xian{
+	border-top:1px dashed #333333;
+}
+.xian2{
+	border-top:1px dashed #333333;
+}
+.top_line {
+	BORDER-TOP: #999999 1px solid
+}
+.px14 {
+	FONT-SIZE: 14px
+}
+.zhucebut{background-image:url(./img/next.jpg) no-repeat;}
+ .agree{background:url(./img/next.jpg) no-repeat center; text-align:center; line-height:24px; cursor:pointer; width:108px; height:33px;}
+
+.font1
+{
+	font-size: 14px;
+	padding-left: 5px;
+}
+.textBox
+{
+	border: solid 1px #7F9DB9;
+	width: 200px;
+	height: 23px;
+	line-height: 23px;
+}
+.textBox1
+{
+	padding-left: 3px;
+	border: solid 1px #7F9DB9;
+	width: 200px;
+	height: 23px;
+	line-height: 23px;
+	margin-left: 10px;
+	margin-right: 5px;
+}
+.buttontj{border:0;width: 146px;height: 44px;font-size: 12px;background: url(./img/reggo.png) no-repeat 0 0;cursor:pointer}
+/*.buttontj:hover{border:0;width: 146px;height: 44px;font-size: 12px;background: url(../images/reggo.png) no-repeat 0 -50px;cursor:pointer}*/
+.TooltipDiv ul
+{
+	padding-left: 20px;
+}
+.regc{ color:red}
+a.regca:hover{ text-decoration:underline}
+.font14{ font-size:14px;}
+
+.tishi
+{
+	font-family: sans-serif; font-size: 14px; line-height: 1.6em; margin: 0; padding: 0; margin: 0 auto;border: 1px solid #999; background: #FFF; cursor: default; overflow: auto;
+}
+.a_voice{cursor:pointer;}
+.a_voice:hover{ text-decoration:underline;}
+
+  

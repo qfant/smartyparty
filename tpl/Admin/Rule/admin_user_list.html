@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <script src="__EASYUI__/jquery.min.js"></script>
+    <script src="__EASYUI__/jquery.easyui.min.js"></script>
+    <script src="__EASYUI__/ajaxSetup.js"></script>
+    <script src="__EASYUI__/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" href="__EASYUI__/super/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__EASYUI__/super/superRed.css" id="themeCss">
+    <script src="__EASYUI__/super/super.js"></script>
+    <script src="__ADMIN_JS__/index.js" type="text/javascript" charset="utf-8"></script>
+
+    <link href="__PUBLIC__/statics/css/admin.css" rel="stylesheet" />
+    <script src="__EASYUI__/common.js"></script>
+    <script src="__EASYUI__/formatter.js"></script>
+    <script src="__EASYUI__/extend/validate.js"></script>
+    <script src="__KINDEDITOR__/kindeditor-all.js"></script>
+    <script src="__KINDEDITOR__/lang/zh-CN.js"></script>
+    <script type="text/javascript">
+        var addAdminUrl="{:U('Admin/Rule/add_admin')}";
+        var editAdminUrl="{:U('Admin/Rule/edit_admin')}";
+        var deleteAdminUrl="{:U('Admin/Rule/delete_users')}";
+        var ajaxGroupAllUrl="{:U('Admin/Rule/ajaxGroupAll')}";
+        var ajaxDepartmentAllUrl="{:U('Admin/Department/ajaxDepartments')}";
+    </script>
+</head>
+<body style="padding: 0">
+<div id='Loading'><image src='__PUBLIC_IMAGES__/loading.gif'/>加载中....</div>
+<script src="__ADMIN_JS__/admin_user_list.js" type="text/javascript" charset="utf-8"></script>
+<table id="adminUserGrid" class="easyui-datagrid" url="{:U('Admin/Rule/ajaxUserList')}" pagination="true"  toolbar="#toolbar_admin_user" singleSelect="true" rownumbers="true">
+    <thead>
+    <tr>
+        <th field="username" width="200" >账号</th>
+        <th field="groupname" width="200" >用户组</th>
+        <th field="deptName" width="200" >部门</th>
+        <th field="phone" width="200" >电话</th>
+        <th field="status" width="200" formatter="formatStatus">状态</th>
+        <th field="last_login_time" width="200"  formatter="Common.TimeFormatter">登录时间</th>
+        <th field="last_login_ip" width="200" >登录ip</th>
+    </tr>
+    </thead>
+</table>
+<div id="toolbar_admin_user">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-plus" plain="true" onclick="addAdminUser()">添加</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-edit" plain="true" onclick="editAdminUser()">编辑</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-remove" plain="true" onclick="destroyAdminUser()">删除</a>
+</div>
+<!-- 添加 -->
+<div id="addAdminUser" class="easyui-dialog" title="添加" style="width:400px;padding:10px 20px;" closed="true" modal="true">
+    <form id="addAdminUserForm" method="post">
+        <table>
+            <tr>
+                <td>账号:</td>
+                <td><input name="username" class="easyui-textbox" data-options="delay:1000,required:true,validType:'account[6,20]' " /></td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td><input name="password"  class="easyui-passwordbox" data-options="delay:1000,required:true,validType:'password[6,20]' " /></td>
+            </tr>
+            <tr>
+                <td>用户组:</td>
+                <td><input id="cc" name="groups" value=""  data-options="delay:1000,required:true,multiple:true">
+                    <input id="group_ids" name="group_ids" value="" type="hidden">
+                </td>
+            </tr>
+            <tr>
+                <td>数据权限:</td>
+                <td>
+                    <select id="addDepartmentId" name="departmentId"  style="width:200px;"
+                            data-options="required:true">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>状态:</td>
+                <td>
+                    <input type="radio" name="status" checked="checked" value="1" class="easyui-validatebox addstatus" /><label>可用</label>
+                    <input type="radio" name="status" value="0" class="easyui-validatebox addstatus" /><label>不可用</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="addAdminUserSubmit()" style="width:90px">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#addAdminUser').dialog('close')" style="width:90px">取消</a></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+<div id="editAdminUser" class="easyui-dialog" title="编辑" style="width:400px;padding:10px 20px;" closed="true" modal="true">
+    <form id="editAdminUserForm" method="post">
+        <input type="hidden" name="id" value="">
+        <table>
+            <tr>
+                <td>账号:</td>
+                <td><input name="username" class="easyui-textbox" data-options="delay:1000,required:true,validType:'account[6,20]' " /></td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td><input name="password" prompt="不填写则为原密码"  class="easyui-passwordbox" /></td>
+            </tr>
+            <tr>
+                <td>用户组:</td>
+                <td><input id="ccd" name="groups" value=""  data-options="delay:1000,required:true,multiple:true" style="width:200px;">
+                    <input id="group_idsd" name="group_ids" value="" type="hidden">
+                </td>
+            </tr>
+            <tr>
+                <td>数据权限:</td>
+                <td>
+                    <select id="editDepartmentId" name="departmentId" class="easyui-combotree" style="width:200px;"
+                            data-options="required:true">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>状态:</td>
+                <td>
+                    <input type="radio" name="status"
+                           class="easyui-validatebox" checked="checked" value="1"><label>可用</label></input>
+                    <input type="radio" name="status"
+                           class="easyui-validatebox" value="0"><label>不可用</label></input>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="editAdminUserSubmit()" style="width:90px">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#editAdminUser').dialog('close')" style="width:90px">取消</a></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+</body>
+</html>

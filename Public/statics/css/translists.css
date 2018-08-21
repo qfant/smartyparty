@@ -1,0 +1,43 @@
+#transListForPrint {
+	margin: 0 0;
+	float: left;
+	text-align: left;
+	padding: 0;
+}
+
+.transListLI {
+	float: left;
+	list-style: none;
+	text-align: left;
+	color: red;
+	margin-left:5px;
+}
+
+.deleteSpan {
+	width:15px;
+	padding-left: 15px;
+	background:  url(../images/tree_dnd_no.png) no-repeat scroll 0 0
+	transparent;
+	margin-left: 10px;
+	cursor: pointer;
+}
+fieldset { border: 1px solid #eee; }
+.eleRequired {
+	color: red;
+}
+.title {
+	color: red;
+	font-weight: bold;
+}
+.divline {
+height:1px;
+border-bottom:1px solid red;
+}
+.divdotline {
+height:1px;
+border-bottom:1px dotted #777;
+}
+.inputView {
+	border:none;
+	border-bottom:1px solid #000;
+}

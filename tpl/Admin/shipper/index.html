@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <script src="__EASYUI__/jquery.min.js"></script>
+    <script src="__EASYUI__/jquery.easyui.min.js"></script>
+    <script src="__EASYUI__/ajaxSetup.js"></script>
+    <script src="__EASYUI__/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" href="__EASYUI__/super/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__EASYUI__/super/superRed.css" id="themeCss">
+    <script src="__EASYUI__/super/super.js"></script>
+    <script src="__ADMIN_JS__/index.js" type="text/javascript" charset="utf-8"></script>
+
+    <link href="__PUBLIC__/statics/css/admin.css" rel="stylesheet" />
+    <script src="__EASYUI__/common.js"></script>
+    <script src="__EASYUI__/formatter.js"></script>
+    <script src="__EASYUI__/extend/validate.js"></script>
+    <script src="__KINDEDITOR__/kindeditor-all.js"></script>
+    <script src="__KINDEDITOR__/lang/zh-CN.js"></script>
+    <script language="javascript" src="__PUBLIC__/statics/print/LodopFuncs.js"></script>
+</head>
+<body style="padding: 0">
+<div id='Loading'><image src='__PUBLIC_IMAGES__/loading.gif'/>加载中....</div>
+<script src="__ADMIN_JS__/shipper.js" type="text/javascript" charset="utf-8"></script>
+<table id="ShipperGrid" class="easyui-datagrid" url="{:U('Admin/Shipper/ajaxShipperList')}" pagination="true"  toolbar="#toolbar_Shipper" rownumbers="true" singleSelect="true">
+    <thead>
+    <tr>
+
+       <!-- <th field="id" width="250" >编号</th>-->
+        <th field="shipper" width="200" >发货人</th>
+        <th field="shippertel" width="200" >发货人电话</th>
+    </tr>
+    </thead>
+</table>
+<div id="toolbar_Shipper">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-plus" plain="true" onclick="addShipper()">添加</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-edit" plain="true" onclick="editShipper()">编辑</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-remove" plain="true" onclick="destroyShipper()">删除</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-address-card" plain="true" onclick="ajaxReceiveListByid()">收货人</a>
+
+
+   <!-- <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-truck" plain="true" onclick="ajaxCarList()">打印</a>-->
+
+    姓名:
+    <input class="easyui-textbox" style="width:110px" name="shipper"id="shippersearch">
+    电话:
+    <input class="easyui-textbox" style="width:110px" name="shippertel"id="shippertelsearch">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="doSearch()" iconCls="icon-search">搜索</a>
+</div>
+<!--添加-->
+<div id="adShipper" class="easyui-dialog" title="添加" style="width:500px; height:300px;padding:10px 20px;" closed="true" modal="true">
+    <form id="addShipperForm" method="post" >
+        <input name="shipperid" id="shipperid" type="hidden"  />
+        <table>
+            <tr>
+                <td>发货人姓名:</td>
+                <td><input name="shipper" style="width: 230px" class="easyui-textbox" data-options="delay:1000,required:true " /></td>
+            </tr>
+            <tr>
+                <td>发货人电话:</td>
+                <td><input name="shippertel"  style="width:230px"  class="easyui-textbox" data-options="delay:1000,required:true " /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td ><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="addShipperSubmit()" style="width:90px">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#adShipper').dialog('close')" style="width:90px">取消</a></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!--编辑-->
+<div id="editShipper" class="easyui-dialog" title="编辑" style="width:500px; height:300px;padding:10px 20px;" closed="true" modal="true">
+    <form id="editShipperForm" method="post">
+        <input type="hidden" name="id" value="">
+        <table>
+            <tr>
+                <td>发货人姓名:</td>
+                <td><input name="shipper" style="width: 230px" class="easyui-textbox" data-options="delay:1000,required:true " /></td>
+            </tr>
+            <tr>
+                <td>发货人电话:</td>
+                <td><input name="shippertel"  style="width: 230px"  class="easyui-textbox" data-options="delay:1000,required:true " /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td ><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="editShipperSubmit()" style="width:90px">保存</a>
+                  <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#editShipper').dialog('close')" style="width:90px">取消</a></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+
+<div id="receiveListDlg" class="easyui-dialog" title="收货人列表" style="width:625px;padding:10px 20px;height: 400px" closed="true" modal="true">
+    <div id="receiveListGrid" style="" pagination="true"   singleSelect="true" rownumbers="true" toolbar="#toolbar_receiveG" >
+        <input id="getshipperid" class="easyui-textbox" type="hidden"  />
+    </div>
+    <div id="toolbar_receiveG">
+        姓名:
+        <input class="easyui-textbox" style="width:110px" name="receivername"id="renamesear">
+        电话:
+        <input class="easyui-textbox" style="width:110px" name="receivertel"id="retelsear">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="doReceiveS()" iconCls="icon-search">搜索</a>
+    </div>
+</div>
+
+
+
+    <div id="receiveDlg" class="easyui-dialog" title="对应收货人列表" style="width:625px;padding:10px 20px;height: 400px" closed="true" modal="true">
+        <div id="receiveGrid" style="" pagination="true"   singleSelect="true" rownumbers="true" >
+        </div>
+    </div>
+<script type="text/javascript">
+    var addShipperUrl="{:U('Admin/Shipper/add')}";
+    var editShipperUrl="{:U('Admin/Shipper/edit')}";
+    var deleteShipperUrl="{:U('Admin/Shipper/delete')}";
+    var ajaxReceiveUrl="{:U('Admin/Receive/ajaxReceiveList')}";
+
+    var chooseReceiveUrl="{:U('Admin/Receive/addReceiveShipper')}";
+
+</script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <link href="__PUBLIC__/statics/hplus/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/animate.min.css" rel="stylesheet" />
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>会议管理添加</h5>
+                <div class="ibox-tools btn-group">
+                    <a class="btn" id="_back" href="{:U('Admin/Meeting/index')}">
+                        <i class="fa fa-chevron-circle-left"></i><span>返回上一页</span>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <form class="form-horizontal m-t" id="commentForm" method="post"  >
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">名称：</label>
+                        <div class="col-sm-8">
+                            <input id="name" name="name" minlength="2" type="text" class="form-control" required="" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label  class="col-sm-3 control-label">时间：</label>
+                        <div class="col-sm-8 form-inline" >
+                            <tr>
+                                <input class='form-control date' id='datetimepicker1'type='datetime' class="form-control" name="startdate" placeholder="开始时间" />
+                                <input class='form-control date' id='datetimepicker2'type='datetime' class="form-control" name="enddate" placeholder="结束时间" />
+                            </tr>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span class="text-warning">*</span>区域地址</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="address1" name="address" errortext="区域地址" class="form-control pull-left mR5" placeholder="请输入区域地址" style="width: 40%;display: inline-block;;" />
+                            <div id="lnglat11" class="form-control pull-left" style="width: auto;display: inline-block;cursor: pointer;">选择坐标</div>
+                            <input type="hidden" name="longitude" id="longitude">
+                            <input type="hidden" name="latitude" id="latitude">
+                            <div class="clearfix"></div>
+                            <span class="help-block hide"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">所属组织：</label>
+                        <div class="col-sm-8">
+                            <input type="text" check="select" name="org" errortext="归属组织" popup="singleOrg" class="form-control popup-content-selection form-check" id="org" readonly="readonly" placeholder="请选择组织">
+                            <span class="help-block"><i class="fa fa-times-circle"></i> 请选择归属组织</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">类型：</label>
+                        <div class="col-sm-2">
+                            <select class="form-control m-b" id="type" name="type">
+                                <option value="0">党课</option>
+                                <option value="1">党员大会</option>
+                                <option value="2">党支部委员会</option>
+                                <option value="4">党小组会</option>
+                                <option value="5">民主生活会</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">主题：</label>
+                        <div class="col-sm-8">
+                            <input id="theme" name="theme" minlength="2" type="text" class="form-control" required="" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">列表图</label>
+                        <div class="col-sm-8">
+                            <div class="upload-picture-box">
+                                <ul>
+                                    <li class="upload-pic-btn">
+                                        <input type="file" number="1" accept="image/*">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"><span class="text-warning">*</span>出席人员</label>
+                        <div class="col-sm-4">
+                            <a class="btn btn-default mR5" id="addPersons" href="javascript:;">添加人员</a>
+
+                            <div id="attendPersons" class="choosed-member clearfix">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-3">
+                            <button class="btn btn-primary" type="button" onclick="addSubmit()">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/statics/hplus/js/jquery.min.js?v=2.1.4"></script>
+<script src="__EASYUI__/ajaxSetup.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__PUBLIC__/statics/hplus/js/content.min.js?v=1.0.0"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/validate/messages_zh.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/demo/form-validate-demo.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/toastr/toastr.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/treeview/bootstrap-treeview.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/layer.min.js"></script>
+<link href="__PUBLIC__/statics/hplus/js/plugins/datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+<link href="__PUBLIC__/statics/hplus/js/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<script src="__PUBLIC__/statics/hplus/js/plugins/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/layer.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/laydate/laydate.js"></script>
+<script src="__PUBLIC__/statics/js/exif.min.js"></script>
+<script src="__PUBLIC__/statics/js/upload.min.js"></script>
+<script src="__PUBLIC__/statics/js/common.js"></script>
+<script src="__PUBLIC__/statics/js/createMeeting.js"></script>
+
+<script src="__PUBLIC__/statics/hplus/js/bootstrap-select.js"></script>
+<link href="__PUBLIC__/statics/hplus/css/bootstrap-select.css" rel="stylesheet" />
+<script>
+    var mapurl="{:U('Admin/Index/map')}";
+    var mmangerurl="{:U('Admin/PartyManager/ajaxAll')}";
+    var departmenturl="{:U('Admin/Department/ajaxDepartmentAll')}";
+    var searchPartyBranchurl="{:U('Admin/PartyBranch/searchPartyBranch')}";
+    var ajaxPartyBranchAllurl="{:U('Admin/PartyBranch/ajaxPartyBranchAll')}";
+    var ajaxMemberAllurl="{:U('Admin/Member/ajaxMemberAll')}";
+    var searchMemberAllurl="{:U('Admin/Member/searchMember')}";
+    var uploadimgurl="{:U('Admin/Index/upLoadFile')}";
+    var addsubmiturlMeeting="{:U('Admin/Meeting/add')}";
+
+    $('#lnglat11').getLnglat({
+        //$address: $('#address')//20180202改为不设置地址详情
+    }, function($e, data) {
+        if (data) {
+            var res = data.lng + ',' + data.lat;
+            $('#latitude').val(data.lat);
+            $('#longitude').val(data.lng);
+            $e.text('坐标：' + res).data('val', res);
+            //20180202改为不设置地址详情
+            $('#address1').val(data.address);
+        }
+    });
+
+
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            autoclose: true,
+            minView: 0,
+            minuteStep:1,
+            format: 'yyyy-mm-dd hh:ii:ss'///
+        });
+        $('#datetimepicker2').datetimepicker({
+            autoclose: true,
+            minView: 0,
+            minuteStep:1,
+            format: 'yyyy-mm-dd hh:ii:ss'///
+        });
+    });
+    function  addSubmit(){
+        var name=$('#name').val();var datetimepicker1=$('#datetimepicker1').val();var datetimepicker2=$('#datetimepicker2').val();
+        var address=$('#address1').val(); var org=$('#org').val();var partyBranch=$('#partyBranch').val();
+        var type=$('#type').val();  var theme=$('#theme').val();
+        var headPic = null,
+                picture = [];
+        $('li.upload-pic-btn').siblings('li').each(function() {
+            var imgUrl = $(this).attr('imgUrl');
+            if (imgUrl) picture.push(imgUrl);
+
+        });
+        var $attendPersons = $('#attendPersons');
+        $attendPersons.siblings().remove();
+        $attendPersons.find('.del').remove();
+        $attendPersons.find('.list').attr('onclick', '');
+
+        var attendUser = [],
+                recorder = "";
+        $("#attendPersons").find(".list").each(function(i, item) {
+            var id = $(item).data("id");
+            attendUser.push(id);
+            if ($(item).hasClass("record-person")) {
+                recorder = id;
+            }
+        });
+
+        if (attendUser.length == 0) {
+            common.nomalPrompt("请添加出席人员");
+            return;
+        }
+        var b = attendUser.join("@");
+        console.log("b"+b);
+        var param = {
+            "name": name,
+            "address": address,
+            "startdate": datetimepicker1,
+            "enddate": datetimepicker2,
+            "address": address,
+            "org": org,
+            "partyBranch": partyBranch,
+            "type": type,
+            "theme": theme,
+            'attendUser': b
+
+        };
+        if (picture.length > 0) {
+            param.picture = JSON.stringify(picture);
+            param.headpic = picture[0];
+        }
+        console.log("人员"+param.headpic);
+        console.log("人员"+param.attendUser);
+        $.ajax({
+            url:addsubmiturlMeeting,
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            data:param,
+            cache:false,//false是不缓存，true为缓存
+            async:true,//true为异步，false为同步
+            success: function (data) {
+                location.href="{:U('Admin/Meeting/index')}";
+            },
+            error: function (data) {
+                location.href="{:U('Admin/Meeting/index')}";
+            }
+        })
+
+    }
+
+</script>
+</body>
+</html>
+

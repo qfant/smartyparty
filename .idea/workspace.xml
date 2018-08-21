@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="df8a1f4f-edb9-40da-9872-c4e17fc60ac6" name="Default" comment="修改session" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="tianyun" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="InfoController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/InfoController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1070">
+              <caret line="209" column="17" selection-start-line="209" selection-start-column="17" selection-end-line="209" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tpl/Admin/Info/add.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="144" selection-start-line="144" selection-end-line="144" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tpl/Admin/Info/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1178">
+              <caret line="71" column="47" selection-start-line="71" selection-start-column="47" selection-end-line="71" selection-end-column="47" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InfoController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/App/Controller/InfoController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="217" column="116" lean-forward="true" selection-start-line="217" selection-start-column="116" selection-end-line="217" selection-end-column="116" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/App/Controller/MemberController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="44" column="54" lean-forward="true" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompanyController.class.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/App/Controller/CompanyController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="370">
+              <caret line="290" column="57" lean-forward="true" selection-start-line="290" selection-start-column="57" selection-end-line="290" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>gc_maxlifetime</find>
+      <find>GLOBAL_PIC_URL</find>
+      <find>WEIXINPAY_CONFIG</find>
+      <find>Weixinpay</find>
+      <find>$_SESSION['user']</find>
+      <find>upload-files-box</find>
+      <find>content-tabs</find>
+      <find>.navbar-static-side</find>
+      <find>.nav&gt;li&gt;a</find>
+      <find>.nav&gt;li.active</find>
+      <find>minimalize-styl-2</find>
+      <find>.navbar-minimalize</find>
+      <find>schoolno</find>
+      <find>edit_admin</find>
+      <find>imgUrl</find>
+      <find>file</find>
+      <find>addSubmit</find>
+      <find>work</find>
+      <find>worklog</find>
+      <find>Worklog</find>
+      <find>queryNumByType</find>
+      <find>signoutNum</find>
+      <find>queryByZhidao</find>
+      <find>queryby</find>
+      <find>signinradius</find>
+      <find>getDepartmentList</find>
+      <find>partyBranch</find>
+      <find>lnglat</find>
+      <find>uploadSubmit</find>
+      <find>impInfo</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="flower" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/tpl/Admin/Nav/index.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/CustomNav/index.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Cardrive/index.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/BindKey/index.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Binding/index.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/AppWeixin/index.html" />
+        <option value="$PROJECT_DIR$/Public/statics/css/login.css" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Conf/convention.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/RouteController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Home/Controller/RegController.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Session.php" />
+        <option value="$PROJECT_DIR$/tpl/Home/Index/user2.html" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/LoginController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Conf/config.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Model/CustomNavModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Model/AdminNavModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Controller/AdminBaseController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Common/function.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Conf/db.php" />
+        <option value="$PROJECT_DIR$/Public/statics/hplus/css/style.min862f.css" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Login/index.html" />
+        <option value="$PROJECT_DIR$/Public/statics/hplus/css/style.css" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Index/index.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Info/numView.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Rule/admin_user_list.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Public/js/admin_user_list.js" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Member/edit.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/PartyBranch/edit.html" />
+        <option value="$PROJECT_DIR$/Application/App/Controller/NewsController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/IntegralController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Model/DepartmentModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/MemberController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/PartyBranchController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/PartyManagerController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/WorkNewsController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/MeetingController.class.php" />
+        <option value="$PROJECT_DIR$/tpl/Admin/PartyBranch/add.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Meeting/edit.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Member/add.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Info/add.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Info/edit.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Meeting/add.html" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/NewsController.class.php" />
+        <option value="$PROJECT_DIR$/tpl/Admin/News/add.html" />
+        <option value="$PROJECT_DIR$/tpl/Admin/Info/index.html" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/InfoController.class.php" />
+        <option value="$PROJECT_DIR$/Application/App/Controller/InfoController.class.php" />
+        <option value="$PROJECT_DIR$/Application/App/Controller/MemberController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Controller/AppBaseController.class.php" />
+        <option value="$PROJECT_DIR$/Application/App/Controller/CompanyController.class.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="http://localhost/index.php/Admin/Index/index" id="b0e69ffc-3768-4cd5-b545-dc5cef6923be" name="hr" />
+    </servers>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1" />
+    <option name="y" value="18" />
+    <option name="width" value="1376" />
+    <option name="height" value="780" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="smpartparty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smpartparty" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smpartparty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smpartparty" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smpartparty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smpartparty" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smpartparty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smpartparty" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smpartparty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smpartparty" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smpartparty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smpartparty" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="App" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smpartparty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smpartparty" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smpartparty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smpartparty" type="462c0819:PsiDirectoryNode" />
+              <item name="tpl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smpartparty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smpartparty" type="462c0819:PsiDirectoryNode" />
+              <item name="tpl" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="smpartparty" type="b2602c69:ProjectViewProjectNode" />
+              <item name="smpartparty" type="462c0819:PsiDirectoryNode" />
+              <item name="tpl" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
+              <item name="Info" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../yiju" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\phpwork\smartparty\Public\statics\hplus\css\patterns" />
+      <recent name="E:\phpwork\jieda\Public\statics\images" />
+      <recent name="E:\phpwork\jieda\tpl\Admin\Public\js" />
+      <recent name="F:\dangjian\tpl\App\User" />
+      <recent name="F:\yiju\tpl\Public\images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\www\smpartparty\tpl\Admin\Info" />
+      <recent name="E:\www\smpartparty\Public\statics\js" />
+      <recent name="E:\phpwork\smartparty\Public\statics\images" />
+      <recent name="E:\phpwork\smartparty\Public\statics\css\img" />
+      <recent name="E:\phpwork\smartparty\Public\statics\hplus" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="hr" start_url="http://localhost/index.php/Admin/Index/index" />
+    <configuration name="hr" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="hr" start_url="http://localhost/index.php/Admin/Index/index" />
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Liarman\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="df8a1f4f-edb9-40da-9872-c4e17fc60ac6" name="Default" comment="" />
+      <created>1475893502656</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1475893502656</updated>
+      <workItem from="1475893504100" duration="9552000" />
+      <workItem from="1475983800938" duration="5450000" />
+      <workItem from="1476065079873" duration="13237000" />
+      <workItem from="1476150020596" duration="8617000" />
+      <workItem from="1476237389799" duration="673000" />
+      <workItem from="1476239575831" duration="4118000" />
+      <workItem from="1476415959363" duration="1643000" />
+      <workItem from="1476932648361" duration="6458000" />
+      <workItem from="1477013158695" duration="7464000" />
+      <workItem from="1477359422047" duration="2912000" />
+      <workItem from="1477452794711" duration="599000" />
+      <workItem from="1477878452119" duration="618000" />
+      <workItem from="1477900284581" duration="4989000" />
+      <workItem from="1477964317628" duration="16328000" />
+      <workItem from="1478402175721" duration="176000" />
+      <workItem from="1478406980521" duration="686000" />
+      <workItem from="1478407796754" duration="6084000" />
+      <workItem from="1478429583475" duration="1585000" />
+      <workItem from="1478482964648" duration="13908000" />
+      <workItem from="1478567906761" duration="16235000" />
+      <workItem from="1478657378889" duration="9555000" />
+      <workItem from="1478759210239" duration="222000" />
+      <workItem from="1479095452408" duration="350000" />
+      <workItem from="1501038063272" duration="16438000" />
+      <workItem from="1501126830785" duration="17742000" />
+      <workItem from="1501154249997" duration="5459000" />
+      <workItem from="1501170571683" duration="6251000" />
+      <workItem from="1501210026754" duration="13857000" />
+      <workItem from="1501294302422" duration="15860000" />
+      <workItem from="1501342683354" duration="624000" />
+      <workItem from="1501503407607" duration="852000" />
+      <workItem from="1501553046035" duration="17670000" />
+      <workItem from="1501637987029" duration="9565000" />
+      <workItem from="1501719836880" duration="9586000" />
+      <workItem from="1501809106831" duration="18892000" />
+      <workItem from="1502069924379" duration="4821000" />
+      <workItem from="1502242510910" duration="3986000" />
+      <workItem from="1502327412215" duration="15000" />
+      <workItem from="1502328149700" duration="176000" />
+      <workItem from="1502786310113" duration="2133000" />
+      <workItem from="1502934803938" duration="1863000" />
+      <workItem from="1503190819846" duration="2743000" />
+      <workItem from="1503284727016" duration="599000" />
+      <workItem from="1503452597140" duration="612000" />
+      <workItem from="1503646402423" duration="884000" />
+      <workItem from="1503906241576" duration="3740000" />
+      <workItem from="1503970025816" duration="530000" />
+      <workItem from="1504172190982" duration="2258000" />
+      <workItem from="1504749523901" duration="9737000" />
+      <workItem from="1504835696324" duration="16767000" />
+      <workItem from="1505097795675" duration="12602000" />
+      <workItem from="1505183274804" duration="15280000" />
+      <workItem from="1505263293249" duration="18187000" />
+      <workItem from="1505358577535" duration="8201000" />
+      <workItem from="1505461442776" duration="5589000" />
+      <workItem from="1505697706008" duration="7031000" />
+      <workItem from="1505786602072" duration="4880000" />
+      <workItem from="1505879087828" duration="1408000" />
+      <workItem from="1505977912153" duration="168000" />
+      <workItem from="1506067573713" duration="2440000" />
+      <workItem from="1506300486138" duration="2463000" />
+      <workItem from="1506323366005" duration="3542000" />
+      <workItem from="1506407729519" duration="1435000" />
+      <workItem from="1506478623670" duration="1408000" />
+      <workItem from="1506656290754" duration="18463000" />
+      <workItem from="1506737763578" duration="342000" />
+      <workItem from="1506738570148" duration="74000" />
+      <workItem from="1506738670081" duration="4826000" />
+      <workItem from="1506756208880" duration="7913000" />
+      <workItem from="1506772489321" duration="4440000" />
+      <workItem from="1507112448626" duration="11699000" />
+      <workItem from="1507209717979" duration="1294000" />
+      <workItem from="1507255217545" duration="1391000" />
+      <workItem from="1507340514499" duration="1334000" />
+      <workItem from="1507379906684" duration="2274000" />
+      <workItem from="1507426954864" duration="22735000" />
+      <workItem from="1507513062303" duration="623000" />
+      <workItem from="1507517038215" duration="11130000" />
+      <workItem from="1507601676226" duration="9483000" />
+      <workItem from="1507684563839" duration="2141000" />
+      <workItem from="1507770665591" duration="1189000" />
+      <workItem from="1507888650861" duration="989000" />
+      <workItem from="1508144226705" duration="147000" />
+      <workItem from="1508291985386" duration="3036000" />
+      <workItem from="1511318038143" duration="20372000" />
+      <workItem from="1511409240625" duration="1822000" />
+      <workItem from="1511421322001" duration="3776000" />
+      <workItem from="1511489490346" duration="3807000" />
+      <workItem from="1511668123984" duration="15000" />
+      <workItem from="1511838031297" duration="12397000" />
+      <workItem from="1511920019075" duration="5776000" />
+      <workItem from="1512006410279" duration="1389000" />
+      <workItem from="1512098477402" duration="3945000" />
+      <workItem from="1512352939754" duration="8723000" />
+      <workItem from="1512437412375" duration="1170000" />
+      <workItem from="1512441131035" duration="16582000" />
+      <workItem from="1512528480262" duration="3597000" />
+      <workItem from="1512611905477" duration="1168000" />
+      <workItem from="1513157797013" duration="2189000" />
+      <workItem from="1513212191862" duration="3777000" />
+      <workItem from="1513310473223" duration="2012000" />
+      <workItem from="1513321008718" duration="1197000" />
+      <workItem from="1513563801353" duration="4870000" />
+      <workItem from="1513649666336" duration="1978000" />
+      <workItem from="1513735965921" duration="1803000" />
+      <workItem from="1513821516754" duration="1070000" />
+      <workItem from="1515739002760" duration="2478000" />
+      <workItem from="1515982935213" duration="332000" />
+      <workItem from="1516011045256" duration="752000" />
+      <workItem from="1516073157313" duration="2125000" />
+      <workItem from="1516778373877" duration="10649000" />
+      <workItem from="1516840582207" duration="2522000" />
+      <workItem from="1516930397341" duration="2085000" />
+      <workItem from="1516949840768" duration="1369000" />
+      <workItem from="1517551151537" duration="867000" />
+      <workItem from="1517798181737" duration="2520000" />
+      <workItem from="1517885466470" duration="86000" />
+      <workItem from="1517980011790" duration="1343000" />
+      <workItem from="1519366669921" duration="1881000" />
+      <workItem from="1519540951348" duration="26000" />
+      <workItem from="1519723240178" duration="1600000" />
+      <workItem from="1520416096799" duration="264000" />
+      <workItem from="1520416373901" duration="727000" />
+      <workItem from="1520480091991" duration="3345000" />
+      <workItem from="1520501206313" duration="600000" />
+      <workItem from="1520562265871" duration="1878000" />
+      <workItem from="1522032040700" duration="1736000" />
+      <workItem from="1522632033243" duration="142000" />
+      <workItem from="1522632684719" duration="9906000" />
+      <workItem from="1523151749736" duration="6233000" />
+      <workItem from="1523237572135" duration="6183000" />
+      <workItem from="1529025858571" duration="11023000" />
+      <workItem from="1530232636613" duration="4905000" />
+      <workItem from="1530237942234" duration="4131000" />
+      <workItem from="1530491791539" duration="18006000" />
+      <workItem from="1530534155093" duration="26428000" />
+      <workItem from="1530663532821" duration="11113000" />
+      <workItem from="1530775106067" duration="25578000" />
+    </task>
+    <task id="LOCAL-00017" summary="项目重构">
+      <created>1511318240312</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1511318240312</updated>
+    </task>
+    <task id="LOCAL-00018" summary="升级样式文件">
+      <created>1511319666250</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1511319666250</updated>
+    </task>
+    <task id="LOCAL-00019" summary="change theme">
+      <created>1511331884249</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1511331884249</updated>
+    </task>
+    <task id="LOCAL-00020" summary="change theme">
+      <created>1511333039152</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1511333039152</updated>
+    </task>
+    <task id="LOCAL-00021" summary="change theme">
+      <created>1511333058246</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1511333058246</updated>
+    </task>
+    <task id="LOCAL-00022" summary="change theme">
+      <created>1511333103528</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1511333103528</updated>
+    </task>
+    <task id="LOCAL-00023" summary="change theme">
+      <created>1511336213212</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1511336213212</updated>
+    </task>
+    <task id="LOCAL-00024" summary="change theme">
+      <created>1511338256606</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1511338256606</updated>
+    </task>
+    <task id="LOCAL-00025" summary="modify footer">
+      <created>1511343619869</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1511343619869</updated>
+    </task>
+    <task id="LOCAL-00026" summary="modify javascript url">
+      <created>1511343761863</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1511343761863</updated>
+    </task>
+    <task id="LOCAL-00027" summary="modify url">
+      <created>1511343801104</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1511343801104</updated>
+    </task>
+    <task id="LOCAL-00028" summary="modify footer">
+      <created>1511421662722</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1511421662722</updated>
+    </task>
+    <task id="LOCAL-00029" summary="modify model">
+      <created>1511421840794</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1511421840794</updated>
+    </task>
+    <task id="LOCAL-00030" summary="modify model">
+      <created>1511422211217</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1511422211217</updated>
+    </task>
+    <task id="LOCAL-00031" summary="修改首页">
+      <created>1511422770111</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1511422770111</updated>
+    </task>
+    <task id="LOCAL-00032" summary="修改group.js">
+      <created>1511424666183</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1511424666183</updated>
+    </task>
+    <task id="LOCAL-00033" summary="修改iframe加载方式">
+      <created>1511838425546</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1511838425546</updated>
+    </task>
+    <task id="LOCAL-00034" summary="删除文件">
+      <created>1511839359633</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1511839359633</updated>
+    </task>
+    <task id="LOCAL-00035" summary="修改js">
+      <created>1511839629947</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1511839629947</updated>
+    </task>
+    <task id="LOCAL-00036" summary="修改注册">
+      <created>1511864630741</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1511864630741</updated>
+    </task>
+    <task id="LOCAL-00037" summary="修改注册">
+      <created>1512354464563</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1512354464563</updated>
+    </task>
+    <task id="LOCAL-00038" summary="添加打印">
+      <created>1512354537935</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1512354537935</updated>
+    </task>
+    <task id="LOCAL-00039" summary="修改伪静态模式">
+      <created>1512441316658</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1512441316658</updated>
+    </task>
+    <task id="LOCAL-00040" summary="修改注册">
+      <created>1512441488493</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1512441488493</updated>
+    </task>
+    <task id="LOCAL-00041" summary="修改session">
+      <created>1512466199049</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1512466199049</updated>
+    </task>
+    <task id="LOCAL-00042" summary="修改session">
+      <created>1512466221948</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1512466221948</updated>
+    </task>
+    <task id="LOCAL-00043" summary="修改session">
+      <created>1512466236148</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1512466236148</updated>
+    </task>
+    <task id="LOCAL-00044" summary="修改session">
+      <created>1512466263770</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1512466263770</updated>
+    </task>
+    <task id="LOCAL-00045" summary="处理ajax请求">
+      <created>1512466294427</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1512466294427</updated>
+    </task>
+    <task id="LOCAL-00046" summary="修改session">
+      <created>1512466315748</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1512466315748</updated>
+    </task>
+    <task id="LOCAL-00047" summary="modify verify code">
+      <created>1513158484858</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1513158484858</updated>
+    </task>
+    <task id="LOCAL-00048" summary="修改session">
+      <created>1513158879931</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1513158879931</updated>
+    </task>
+    <task id="LOCAL-00049" summary="修改首页">
+      <created>1513159199785</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1513159199785</updated>
+    </task>
+    <task id="LOCAL-00050" summary="修改登陆页面">
+      <created>1513217058139</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1513217058139</updated>
+    </task>
+    <task id="LOCAL-00051" summary="add login pic">
+      <created>1513217252285</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1513217252285</updated>
+    </task>
+    <task id="LOCAL-00052" summary="修改首页">
+      <created>1513238390570</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1513238390570</updated>
+    </task>
+    <task id="LOCAL-00053" summary="修改默认访问模块">
+      <created>1513677365501</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1513677365501</updated>
+    </task>
+    <task id="LOCAL-00054" summary="session过期跳出">
+      <created>1515739129879</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1515739129879</updated>
+    </task>
+    <task id="LOCAL-00055" summary="增加获取地理位置">
+      <created>1516073364436</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1516073364436</updated>
+    </task>
+    <task id="LOCAL-00056" summary="修改session">
+      <created>1516073997944</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1516073997944</updated>
+    </task>
+    <task id="LOCAL-00057" summary="验证码刷新">
+      <created>1516780557404</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1516780557404</updated>
+    </task>
+    <task id="LOCAL-00058" summary="修改session">
+      <created>1516790470091</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1516790470091</updated>
+    </task>
+    <task id="LOCAL-00059" summary="修改session">
+      <created>1516790515594</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1516790515595</updated>
+    </task>
+    <task id="LOCAL-00060" summary="修改session">
+      <created>1516790541514</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1516790541514</updated>
+    </task>
+    <task id="LOCAL-00061" summary="修改session">
+      <created>1516790591621</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1516790591621</updated>
+    </task>
+    <task id="LOCAL-00062" summary="修改session">
+      <created>1516790631097</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1516790631097</updated>
+    </task>
+    <task id="LOCAL-00063" summary="删除文件">
+      <created>1519724129844</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1519724129844</updated>
+    </task>
+    <task id="LOCAL-00064" summary="删除文件">
+      <created>1519724208447</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1519724208447</updated>
+    </task>
+    <task id="LOCAL-00065" summary="index">
+      <created>1520563534650</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1520563534651</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="771544000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.175" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5025" side_tool="true" weight="0.28060672" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32959402" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="14" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="4" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32936078" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.4975" weight="0.28060672" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Application Servers" order="13" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="0" weight="0.3297062" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32767764" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3264418" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="项目重构" />
+    <MESSAGE value="升级样式文件" />
+    <MESSAGE value="change theme" />
+    <MESSAGE value="modify javascript url" />
+    <MESSAGE value="modify url" />
+    <MESSAGE value="modify footer" />
+    <MESSAGE value="modify model" />
+    <MESSAGE value="修改group.js" />
+    <MESSAGE value="修改iframe加载方式" />
+    <MESSAGE value="修改js" />
+    <MESSAGE value="添加打印" />
+    <MESSAGE value="修改伪静态模式" />
+    <MESSAGE value="修改注册" />
+    <MESSAGE value="处理ajax请求" />
+    <MESSAGE value="modify verify code" />
+    <MESSAGE value="修改登陆页面" />
+    <MESSAGE value="add login pic" />
+    <MESSAGE value="修改首页" />
+    <MESSAGE value="修改默认访问模块" />
+    <MESSAGE value="session过期跳出" />
+    <MESSAGE value="增加获取地理位置" />
+    <MESSAGE value="验证码刷新" />
+    <MESSAGE value="修改session" />
+    <MESSAGE value="删除文件" />
+    <MESSAGE value="index" />
+    <option name="LAST_COMMIT_MESSAGE" value="index" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="12" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Public/js/admin_user_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="123" column="40" lean-forward="true" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Member/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="111" column="44" lean-forward="true" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Member/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Runtime/Logs/Admin/18_07_02.log" />
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/PartyBranch/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="73" column="151" selection-start-line="73" selection-start-column="151" selection-end-line="73" selection-end-column="151" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Model/WorklogModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/BindingController.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/MeetingController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="80" column="7" lean-forward="true" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/statics/js/createMeeting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4199">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/statics/easyui/ajaxSetup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/statics/easyui/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/IndexController.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/_types.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Runtime/Logs/App/18_07_02.log" />
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/WorkNews/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-89">
+          <caret line="37" column="26" lean-forward="true" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Post/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-521">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Runtime/Logs/Common/18_07_02.log" />
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/NewsController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Runtime/Logs/Admin/18_07_04.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" lean-forward="true" selection-start-line="16" selection-start-column="112" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/DepartmentController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Model/DepartmentModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/MemberController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/PostController.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/ReceiveController.class.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/RuleController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="306" column="93" selection-start-line="306" selection-start-column="80" selection-end-line="306" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/WorkNewsController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Integral/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/PartyManager/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/MeetingController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="54" column="47" lean-forward="true" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/PartyBranch/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/PartyBranch/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="165" column="23" lean-forward="true" selection-start-line="165" selection-start-column="23" selection-end-line="165" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/statics/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1363">
+          <caret line="1596" column="13" lean-forward="true" selection-start-line="1596" selection-start-column="13" selection-end-line="1596" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Meeting/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="146" column="12" selection-start-line="146" selection-start-column="12" selection-end-line="146" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Info/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="70" column="37" lean-forward="true" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Member/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="185" column="37" lean-forward="true" selection-start-line="185" selection-start-column="37" selection-end-line="185" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/PartyBranchController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/PartyManagerController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/IntegralController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Meeting/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="123" column="55" selection-end-line="239" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/News/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="104" column="48" lean-forward="true" selection-start-line="104" selection-start-column="48" selection-end-line="104" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/NewsController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Info/add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="144" selection-start-line="144" selection-end-line="144" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tpl/Admin/Info/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="71" column="47" selection-start-line="71" selection-start-column="47" selection-end-line="71" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/InfoController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1070">
+          <caret line="209" column="17" selection-start-line="209" selection-start-column="17" selection-end-line="209" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/MemberController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="44" column="54" lean-forward="true" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/InfoController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="217" column="116" lean-forward="true" selection-start-line="217" selection-start-column="116" selection-end-line="217" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Controller/AppBaseController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/CompanyController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="290" column="57" lean-forward="true" selection-start-line="290" selection-start-column="57" selection-end-line="290" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

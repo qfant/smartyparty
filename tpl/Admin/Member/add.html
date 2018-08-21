@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <link href="__PUBLIC__/statics/hplus/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/animate.min.css" rel="stylesheet" />
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>人员管理添加</h5>
+                <div class="ibox-tools btn-group">
+                    <a class="btn" id="_back" href="{:U('Admin/Member/index')}">
+                        <i class="fa fa-chevron-circle-left"></i><span>返回上一页</span>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <form class="form-horizontal m-t" id="memberForm" method="post">
+                   <!-- <input type="hidden" name="department_id" value="{$_SESSION['user']['data']['department_id']}">-->
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">手机号：</label>
+                        <div class="col-sm-8">
+                            <input id="phone" name="phone"  type="phone" class="form-control" required="" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">密码：</label>
+                        <div class="col-sm-8">
+                            <input id="password" name="password"  type="password" class="form-control" required="" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">真实姓名：</label>
+                        <div class="col-sm-8">
+                            <input id="truename" name="truename"  type="text" class="form-control" required="" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">所属组织：</label>
+                        <div class="col-sm-8">
+                            <input type="text" check="select" name="org" errortext="归属组织" popup="singleOrg" class="form-control popup-content-selection form-check" id="org" readonly="readonly" placeholder="请选择组织">
+                            <span class="help-block"><i class="fa fa-times-circle"></i> 请选择归属组织</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">所属企业：</label>
+                        <div class="col-sm-8">
+                            <input type="text" check="select" name="partybranch" errortext="所属企业" popup="partyBranch" class="form-control popup-content-selection form-check" id="partyBranch" readonly="readonly" placeholder="请选择所属企业">
+                            <span class="help-block"><i class="fa fa-times-circle"></i> 请选择所属企业</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">岗位类型：</label>
+                        <div class="col-sm-8">
+                            <input type="text" check="select" name="type" errortext="所属岗位" popup="typeQuarters" class="form-control popup-content-selection form-check" id="typeQuarters" readonly="readonly" placeholder="请选择所属岗位">
+                            <span class="help-block"><i class="fa fa-times-circle"></i> 请选择所属岗位</span>
+                        </div>
+                    </div>
+                    <!--<div class="form-group">
+                        <label class="col-sm-3 control-label">类型：</label>
+                        <div class="col-sm-2">
+                            <select class="form-control m-b" name="type">
+                                <option value="1">市委班办</option>
+                                <option value="2">市直工委成员单位</option>
+                                <option value="3">市指导员</option>
+                                <option value="4">县区班办</option>
+                                <option value="5">县区工委成员单位</option>
+                                <option value="6">各县区指导员</option>
+                                <option value="7">政策宣传</option>
+                                <option value="8">党建业务</option>
+                                <option value="9">贵员</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">状态：</label>
+                        <div class="col-sm-2">
+                            <select class="form-control m-b" name="status">
+                                <option value="0">待审核 </option>
+                                <option value="1">审核通过</option>
+                                <option value="-1">禁止登录</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">头像</label>
+                        <div class="col-sm-8">
+                            <div class="upload-picture-box">
+                                <ul>
+                                    <li class="upload-pic-btn">
+                                        <input type="file" number="1" accept="image/*">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--  <div class="form-group">
+                          <label class="col-sm-3 control-label"><span class="text-warning">*</span>出席人员</label>
+                          <div class="col-sm-4">
+                              <a class="btn btn-default mR5" id="addPersons" href="javascript:;">添加人员</a>
+                              <div id="attendPersons" class="choosed-member clearfix">
+                              </div>
+                          </div>
+                      </div>-->
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-3">
+                            <a class="btn btn-primary" href="javascript:void(0);" onclick="addSu()">提交</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/statics/hplus/js/jquery.min.js?v=2.1.4"></script>
+<script src="__EASYUI__/ajaxSetup.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__PUBLIC__/statics/hplus/js/content.min.js?v=1.0.0"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/toastr/toastr.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/validate/messages_zh.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/demo/form-validate-demo.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/toastr/toastr.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/treeview/bootstrap-treeview.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/layer.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/laydate/laydate.js"></script>
+<script src="__PUBLIC__/statics/js/exif.min.js"></script>
+<script src="__PUBLIC__/statics/js/upload.min.js"></script>
+<script src="__PUBLIC__/statics/js/common.js"></script>
+<!--<script src="__PUBLIC__/statics/js/createMeeting.js"></script>-->
+<script>
+    var departmenturl="{:U('Admin/Department/ajaxDepartmentAll')}";
+    var searchPartyBranchurl="{:U('Admin/PartyBranch/searchPartyBranch')}";
+    var ajaxPartyBranchAllurl="{:U('Admin/PartyBranch/ajaxPartyBranchAll')}";
+    var ajaxMemberAllurl="{:U('Admin/Member/ajaxMemberAll')}";
+    var searchMemberAllurl="{:U('Admin/Member/searchMember')}";
+    var uploadimgurl="{:U('Admin/Index/upLoadFile')}";
+    var addsubmiturlMember="{:U('Admin/Member/add')}";
+
+    var searchPosturl="{:U('Admin/Post/searchPost')}";
+    var ajaxPostAllurl="{:U('Admin/Post/ajaxPostAll')}";
+     function  addSu(){
+         $("#memberForm").validate();
+
+         var password=$('#password').val();
+         var truename=$('#truename').val();
+         var phone=$('#phone').val();
+         var org=$('#org').val();
+         var partyBranch=$('#partyBranch').val();
+         var type=$('#type').val();
+         var status=$('#status').val();
+         var picture = [];
+         $('li.upload-pic-btn').siblings('li').each(function() {
+             var imgUrl = $(this).attr('imgUrl');
+             if (imgUrl) picture.push(imgUrl);
+
+         });
+         var param = {
+             "password": password,
+             "truename": truename,
+             "phone": phone,
+             "org": org,
+             "partyBranch": partyBranch,
+             "type": type,
+             "status": status,
+             "headpic":picture[0]
+         };
+         // if (picture.length > 0) {
+         //     param.picture = JSON.stringify(picture);
+         //     param.headpic = picture[0];
+         //
+         // }
+         // $.ajax({
+         //     url:addsubmiturlMember,
+         //     type: "POST",//方法类型
+         //     dataType: "json",//预期服务器返回的数据类型
+         //     data:param,
+         //     success: function (data) {
+         //         console.log(data);
+         //         alert(data.message);
+         //         location.href="{:U('Admin/Member/index')}";
+         //     },
+         //     error: function (data) {
+         //         console.log(data);
+         //         alert("添加失败");
+         //     }
+         // });
+         $.post(addsubmiturlMember,param,function(data){
+             if(data.status!=1){
+                 alert(data.message);
+                 // location.href="{:U('Admin/Member/index')}";
+             }else {
+                 location.href="{:U('Admin/Member/index')}";
+             }
+         },"json");
+        return false;
+     }
+</script>
+</body>
+</html>

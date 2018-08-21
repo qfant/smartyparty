@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <script src="__EASYUI__/jquery.min.js"></script>
+    <script src="__EASYUI__/jquery.easyui.min.js"></script>
+    <script src="__EASYUI__/ajaxSetup.js"></script>
+    <script src="__EASYUI__/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" href="__EASYUI__/super/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__EASYUI__/super/superRed.css" id="themeCss">
+    <script src="__EASYUI__/super/super.js"></script>
+    <script src="__ADMIN_JS__/index.js" type="text/javascript" charset="utf-8"></script>
+
+    <link href="__PUBLIC__/statics/css/admin.css" rel="stylesheet" />
+    <script src="__EASYUI__/common.js"></script>
+    <script src="__EASYUI__/formatter.js"></script>
+    <script src="__EASYUI__/extend/validate.js"></script>
+    <script src="__KINDEDITOR__/kindeditor-all.js"></script>
+    <script src="__KINDEDITOR__/lang/zh-CN.js"></script>
+    <script type="text/javascript">
+        var addBindingUrl="{:U('Admin/Binding/add_admin')}";
+        var editBindingUrl="{:U('Admin/Binding/edit_admin')}";
+        var deleteBindingUrl="{:U('Admin/Binding/delete_users')}";
+        var ajaxBindingUrl="{:U('Admin/Binding/ajaxGroupAll')}";
+    </script>
+</head>
+<body style="padding: 0">
+<div id='Loading'><image src='__PUBLIC_IMAGES__/loading.gif'/>加载中....</div>
+<script src="__ADMIN_JS__/binding.js" type="text/javascript" charset="utf-8"></script>
+<table id="BindingGrid" class="easyui-datagrid" url="{:U('Admin/Binding/ajaxUsersList')}" pagination="true"  toolbar="#toolbar_Binding" singleSelect="true" rownumbers="true"pageSize="20">
+    <thead>
+    <tr>
+        <th field="name" width="200" >用户名</th>
+        <th field="phone" width="200">电话</th>
+        <th field="key" width="200">绑定秘钥</th>
+        <th field="createtime" width="200">绑定时间</th>
+    </tr>
+    </thead>
+</table>
+<div id="toolbar_Binding">
+    用户名:<input class="easyui-textbox" style="width:110px" name="name" id="namesearch">
+    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="doSearch()" iconCls="icon-search">搜索</a>
+</div>
+
+</body>
+</html>
+

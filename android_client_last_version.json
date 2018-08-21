@@ -1,0 +1,7 @@
+{
+"upgradeAddress":[{"source":"官网","url":"http://47.96.183.3:8080/yjwy/download/client/android/wuye_v3.0.0.apk"}],
+"upgradeNote":"更新手机号段支持199号段，修复一些bug",
+"force":true,
+"versionCode":3,
+"nversion":"3.0.0"
+}

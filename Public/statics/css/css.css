@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background:#b8e5f4; margin:0; padding:0;}
+img{ border:0;}
+.container{ width:1130px; height:650px; background:url(./img/wrap_bg.jpg) no-repeat; margin:0 auto; }
+.contant{ width:100%; height:717px; background:url(./img/bg.png) repeat-x; margin:0px; padding:0px;}
+.container2{ width:1130px; height:650px; background:url(./img/wrap_bg.jpg) no-repeat; margin:0 auto; }
+
+
+.nei{ width:820px; height:370px;float:left; margin-left:19px;_margin:9px; display:inline;}
+.xing{ color:#cc0000;}
+.newTxt {
+/*background: #FBFBFB url(./img/txtbg.jpg) repeat-x left top;*/
+height: 30px;
+line-height: 30px;
+border: 1px solid #ABADB3;
+font-size: 14px;
+width:220px;
+}
+.xm{ width:820px; height:30px; line-height:30px; font-size:12px;  margin-top:30px;_margin-top:7px; float:left; display:inline;}
+.ipt{ width:220px; float:left; margin-left:10px; display:inline;}
+.dui{ width:110px; text-align:right; float:left;}
+.dui2{ width:120px; text-align:right; float:left;}
+.yanzheng{ width:100px; height:30px; line-height:30px; float:left; margin-left:10px;}
+.yanzheng img{ margin-top:5px;}
+.zhuce{ width:820px; height:39px; line-height:39px; color:#4a99e4; float:left; margin-top:50px;}
+.xieyi{ width:190px; text-align:center; height:39px; float:left; font-size:12px;}
+.xieyi a:link{ color:#4a99e4; text-decoration:none;}
+.xieyi a:visited{ color:#4a99e4; text-decoration:none;}
+.xieyi a:hover{ color:#cc0000; text-decoration: none;}
+.anniu{width:220px; height:39px; float:left; }
+.zhu_ce{ border:0; cursor:pointer;}
+.layout2{ width:880px;  background:#FFF; border:1px solid #eee;margin-top:50px; float:left; margin-left:125px;}
+.layout{ width:880px; height:570px; background:#FFF; border:1px solid #eee;margin-top:50px; float:left; margin-left:125px;}
+.top{ width:880px; height:79px; float:left;}
+#logo{ width:255px; height:79px; float:left;}
+#choice{ width:260px; height:79px; float:left; margin-left:105px;}
+.contants{ width:840px; height:450px; margin-left:38px; float:left;}
+.nav{ width:840px; height:41px; margin:0; padding:0;}
+.cz{ width:156px; height:41px; float:left;}
+.qy{ width:156px; height:41px; float:left;}
+.gr{ width:156px; height:41px; float:left;}
+.cz2{ width:156px; height:41px; float:left;}
+.qy2{ width:156px; height:41px; float:left;}
+.gr2{ width:156px; height:41px; float:left;}
+.line{ width:1px; height:200px; float:left;}
+.right{ width:829px; height:365px; float:left;}
+.cz a{ width:156px; height:41px; display:block; text-decoration:none; font-size:14px; font-family:"微软雅黑","宋体"; background:url(./img/ic1_1.jpg) no-repeat; line-height:30px; color:#FFF;}
+.tong{ float:right; width:85px; margin-right:15px;}
+.qy a{ width:156px; height:41px; display:block; text-decoration:none; font-size:14px; font-family:"微软雅黑","宋体"; background:url(./img/ic2.jpg) no-repeat; line-height:30px; color: #666;}
+.gr a{ width:156px; height:41px; display:block; text-decoration:none; font-size:14px; font-family:"微软雅黑","宋体"; background:url(./img/ic3.jpg) no-repeat; line-height:30px; color: #666;}
+.cz2 a{ width:156px; height:41px; display:block; text-decoration:none; font-size:14px; font-family:"微软雅黑","宋体"; background:url(./img/ic1_11.jpg) no-repeat; line-height:30px; color:#666;}
+.tong{ float:right; width:85px; margin-right:15px;}
+.qy2 a{ width:156px; height:41px; display:block; text-decoration:none; font-size:14px; font-family:"微软雅黑","宋体"; background:url(./img/ic2_2.jpg) no-repeat; line-height:30px; color: #fff;}
+.gr2 a{ width:156px; height:41px; display:block; text-decoration:none; font-size:14px; font-family:"微软雅黑","宋体"; background:url(./img/ic3_3.jpg) no-repeat; line-height:30px; color: #fff;}
+
+.pop{ border:8px solid #666;width:600px; background:#fff; display:none; height:320px; font-size: 12px;}
+.pop a{ text-decoration:none; color:#cc0000;}
+.pop a:link{color:#4a9ce8;}
+.pop a:visited{ color:#4a9ce8;}
+.pop a:hover{color:#cc0000;}
+
+.gb{ margin-top:5px; margin-right:5px;}
+.gb a{ float:right;}
+#cz{ width:598px; height:60px; margin-top:40px; border-bottom:1px dashed #CCC; }
+.tit{ font-weight:bold; font-size:14px; color:#000; width:80px; height:60px; line-height:60px; float:left; margin-left:20px; text-align:left;}
+.tet{ width:450px; height:60px; float:left; margin-left:20px; line-height:30px;}

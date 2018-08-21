@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>用户组添加用户 - bjyadmin</title>
+    <bootstrapcss />
+    <link rel="stylesheet" href="__PUBLIC__/statics/css/bjy.css">
+</head>
+<body>
+<div class="bjy-admin-nav">
+    <i class="fa fa-home"></i> 首页
+    &gt;
+    后台管理
+    &gt;
+    车主列表
+</div>
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active">
+        <a href="javascript:void(0);">车主列表</a>
+    </li>
+</ul>
+<div class="row">
+    <form class="navbar-form navbar-left" role="search" action="" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="" name="name"/>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="" name="title"/>
+        </div>
+        <button type="submit" class="btn btn-default">搜索</button>
+    </form>
+</div>
+
+<table class="table table-striped table-bordered table-hover table-condensed">
+    <tr>
+        <th width="10%">用户名</th>
+        <th>用户组</th>
+        <th>操作</th>
+    </tr>
+    <foreach name="data['data']" item="v">
+        <tr>
+            <td>{$v['nickname']}</td>
+            <td>{$v['title']}</td>
+            <td>
+                <a href="{:U('Admin/Rule/edit_admin',array('id'=>$v['uid']))}">修改权限或密码</a>
+            </td>
+        </tr>
+    </foreach>
+</table>
+ {$data['page']}
+<bootstrapjs />
+</body>
+</html>

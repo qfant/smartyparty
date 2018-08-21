@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{$catname}</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- head 中 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/weui/1.1.1/style/weui.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/statics/css/mobile.css">
+</head>
+<body>
+<header class="demos-header">
+    <!--<h1 class="demos-title">{$catname}</h1>-->
+</header>
+<div class="weui-cells">
+    <volist name="news" id="n">
+    <a class="weui-cell weui-cell_access" href="{:U('App/Index/newsdetail',array('id'=>$n['id']))}">
+        <div class="weui-cell__bd">
+            <p>{$n.title}</p>
+        </div>
+        <div class="weui-cell__ft">
+        </div>
+    </a>
+    </volist>
+</div>
+<div class="weui-footer">
+    <p class="weui-footer__text">Copyright © 启凡科技提供技术支持</p>
+</div>
+
+</body>
+<!-- body 最后 -->
+<script src="//cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/jquery-weui/1.0.1/js/jquery-weui.min.js"></script>
+</html>
+

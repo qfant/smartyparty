@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="__EASYUI__/themes/default/easyui.css" rel="stylesheet" />
+    <link href="__EASYUI__/themes/color.css" rel="stylesheet" />
+    <link href="__EASYUI__/themes/icon.css" rel="stylesheet" />
+    <link href="__KINDEDITOR__/themes/default/default.css" rel="stylesheet" />
+    <script src="__EASYUI__/jquery.min.js"></script>
+    <script src="__EASYUI__/jquery.easyui.min.js"></script>
+    <script src="__EASYUI__/locale/easyui-lang-zh_CN.js"></script>
+    <script src="__EASYUI__/common.js"></script>
+    <script src="__KINDEDITOR__/kindeditor-all-min.js"></script>
+</head>
+<body style="padding: 0">
+<div id='Loading'><image src='__PUBLIC_IMAGES__/loading.gif'/>加载中....</div>
+<script src="__ADMIN_JS__/Link.js" type="text/javascript" charset="utf-8"></script>
+
+<table id="linkGrid" class="easyui-datagrid" style="width:92%;height:800px" url="{:U('Admin/Link/ajaxLinkList')}" pagination="true"  toolbar="#toolbar" singleSelect="true" rownumbers="true">
+    <thead>
+    <tr>
+        <th field="title" width="200" >标题</th>
+        <th field="imgurl" width="200" >图片地址</th>
+        <th field="link" width="200" >链接</th>
+        <th field="sort" width="200" >排序</th>
+        <th field="type" width="200" formatter="formatCat">分类</th>
+    </tr>
+    </thead>
+</table>
+<div id="toolbar">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addLink()">添加</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editLink()">编辑</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyLink()">删除</a>
+</div>
+<!-- 添加 -->
+<div id="addLink" class="easyui-dialog" title="添加" style="width:500px;padding:10px 20px;" closed="true" modal="true">
+    <form id="addLinkForm" method="post">
+        <table>
+            <tr>
+                <td>标题:</td>
+                <td><input name="title" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+            </tr>
+            <tr>
+                <td>图片:</td>
+                <td><input name="imgurl" class="easyui-textbox addimg" data-options="delay:1000,required:true,height:30"  />
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" id="addlinkimg" style="width:90px">上传</a>
+                </td>
+            </tr>
+            <tr>
+                <td>链接地址:</td>
+                <td><input name="link" class="easyui-textbox" data-options="delay:1000,required:true,height:30,width:280" /></td>
+            </tr>
+            <tr>
+                <td>排序:</td>
+                <td><input name="sort" class="easyui-numberbox" data-options="delay:1000,height:30" value="0"/></td>
+            </tr>
+            <tr>
+                <td>分类:</td>
+                <td>
+                    <select class="easyui-combobox " id="linkcatadd" name="type">
+                        <option value="1" selected="true">首页</option>
+                        <option value="2">超市</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="addLinkSubmit()" style="width:90px">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#addLink').dialog('close')" style="width:90px">取消</a></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+<div id="editLink" class="easyui-dialog" title="编辑" style="width:500px;padding:10px 20px;" closed="true" modal="true">
+    <form id="editLinkForm" method="post">
+        <input type="hidden" name="id" value="">
+        <table>
+            <tr>
+                <td>标题:</td>
+                <td><input name="title" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+            </tr>
+            <tr>
+                <td>图片:</td>
+                <td><input name="imgurl" class="easyui-textbox editimg" data-options="delay:1000,required:true,height:30"  />
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" id="editlinkimg" style="width:90px">上传</a>
+                </td>
+            </tr>
+            <tr>
+                <td>链接地址:</td>
+                <td><input name="link" class="easyui-textbox" data-options="delay:1000,required:true,height:30,width:280" /></td>
+            </tr>
+            <tr>
+                <td>排序:</td>
+                <td><input name="sort" class="easyui-numberbox" data-options="delay:1000,height:30" value="0"/></td>
+            </tr>
+            <tr>
+                <td>分类:</td>
+                <td>
+                    <select class="easyui-combobox " id="linkcatedit" name="type">
+                        <option value="1">首页</option>
+                        <option value="2">超市</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="editLinkSubmit()" style="width:90px">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#editLink').dialog('close')" style="width:90px">取消</a></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+<script type="text/javascript">
+    var editLinkUrl="{:U('Admin/Link/edit')}";
+    var deleteLinkUrl="{:U('Admin/Link/delete')}";
+    var addLinkUrl="{:U('Admin/Link/add')}";
+</script>
+</body>
+</html>

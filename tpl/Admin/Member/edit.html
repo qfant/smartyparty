@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <link href="__PUBLIC__/statics/hplus/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/animate.min.css" rel="stylesheet" />
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>人员管理编辑</h5>
+                <div class="ibox-tools btn-group">
+                    <a class="btn" id="_back" href="{:U('Admin/Member/index')}">
+                        <i class="fa fa-chevron-circle-left"></i><span>返回上一页</span>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <form class="form-horizontal m-t" id="commentForm" method="post">
+                    <input type="hidden" id="id" name="id" value="{$member.id}">
+                    <input type="hidden" name="department_id" value="{$_SESSION['user']['data']['department_id']}">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">姓名：</label>
+                        <div class="col-sm-8">
+                            <input id="truename" name="truename"  type="text" class="form-control" required="" aria-required="true" value="{$member.truename}">
+                        </div>
+                    </div>					
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">密码：</label>
+                        <div class="col-sm-8">
+                            <input id="password" name="password"  type="password" class="form-control" required="" aria-required="true" value="{$member.password}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">电话：</label>
+                        <div class="col-sm-8">
+                            <input id="phone" name="phone"  type="phone" class="form-control" required="" aria-required="true" value="{$member.phone}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">所属组织：</label>
+                        <div class="col-sm-8">
+                            <input type="text" check="select" name="org" errortext="归属组织" popup="singleOrg" class="form-control popup-content-selection form-check" id="org" readonly="readonly" placeholder="请选择组织" value="{$departmentname}">
+                            <span class="help-block"><i class="fa fa-times-circle"></i> 请选择归属组织</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">所属企业：</label>
+                        <div class="col-sm-8">
+                            <input type="text" check="select" name="partybranch" errortext="所属企业" popup="partyBranch" class="form-control popup-content-selection form-check" id="partyBranch" readonly="readonly" placeholder="请选择所属企业" value="{$partybranchname}">
+                            <span class="help-block"><i class="fa fa-times-circle"></i> 请选择所属企业</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">岗位类型：</label>
+                        <div class="col-sm-8">
+                            <input type="text" check="select" name="type" errortext="所属岗位" popup="typeQuarters" class="form-control popup-content-selection form-check" id="typeQuarters" readonly="readonly" placeholder="请选择所属岗位" value="{$typename}">
+                            <span class="help-block"><i class="fa fa-times-circle"></i> 请选择所属岗位</span>
+                        </div>
+                    </div>
+                  <!--  <div class="form-group">
+                        <label class="col-sm-3 control-label">类型：</label>
+                        <div class="col-sm-2">
+                            <select class="form-control m-b" name="type">
+                                <option value="1"<if condition="$member.type eq 1">selected</if>>市委班办</option>
+                                <option value="2"<if condition="$member.type eq 2">selected</if>>市直工委成员单位</option>
+                                <option value="3"<if condition="$member.type eq 3">selected</if>>市指导员</option>
+                                <option value="4" <if condition="$member.type eq 4">selected</if>>县区班办</option>
+                                <option value="5"<if condition="$member.type eq 5">selected</if>>县区工委成员单位</option>
+                                <option value="6"<if condition="$member.type eq 6">selected</if>>各县区指导员</option>
+                                <option value="7"<if condition="$member.type eq 7">selected</if>>政策宣传</option>
+                                <option value="8" <if condition="$member.type eq 8">selected</if>>党建业务</option>
+                                <option value="9" <if condition="$member.type eq 9">selected</if>>贵员</option>
+                              &lt;!&ndash;  <option value="1">市委班办</option>
+                                <option value="2">市直工委成员单位</option>
+                                <option value="3">市指导员</option>
+                                <option value="4">县区班办</option>
+                                <option value="5">县区工委成员单位</option>
+                                <option value="6">各县区指导员</option>
+                                <option value="7">政策宣传</option>
+                                <option value="8">党建业务</option>
+                                <option value="9">贵员</option>&ndash;&gt;
+                            </select>
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">状态：</label>
+                        <div class="col-sm-2">
+                            <select class="form-control m-b" id="status" name="status">
+                                <option value="0"<if condition="$member.type eq 0">selected</if>>待审核</option>
+                                <option value="1"<if condition="$member.type eq 1">selected</if>>审核通过</option>
+                                <option value="-1"<if condition="$member.type eq -1">selected</if>>禁止登录</option>
+                            <!--    <option value="0">待审核 </option>
+                                <option value="1">审核通过</option>
+                                <option value="-1">禁止登录</option>-->
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">头像</label>
+                        <div class="col-sm-8">
+                            <div class="upload-picture-box">
+                                <ul>
+                                    <li class="upload-pic-btn">
+                                        <input type="file" number="1" accept="image/*">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-3">
+                            <button class="btn btn-primary" type="submit" >提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/statics/hplus/js/jquery.min.js?v=2.1.4"></script>
+<script src="__EASYUI__/ajaxSetup.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__PUBLIC__/statics/hplus/js/content.min.js?v=1.0.0"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/validate/messages_zh.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/demo/form-validate-demo.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/toastr/toastr.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/treeview/bootstrap-treeview.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/layer.min.js"></script>
+<script src="__PUBLIC__/statics/js/exif.min.js"></script>
+<script src="__PUBLIC__/statics/js/upload.min.js"></script>
+<script src="__PUBLIC__/statics/js/common.js"></script>
+<script src="__PUBLIC__/statics/js/createMeeting.js"></script>
+
+<script>
+    var uploadimgurl="{:U('Admin/Index/upLoadFile')}";
+    var departmenturl="{:U('Admin/Department/ajaxDepartmentAll')}";
+    var searchPartyBranchurl="{:U('Admin/PartyBranch/searchPartyBranch')}";
+    var ajaxPartyBranchAllurl="{:U('Admin/PartyBranch/ajaxPartyBranchAll')}";
+    var searchPosturl="{:U('Admin/Post/searchPost')}";
+    var ajaxPostAllurl="{:U('Admin/Post/ajaxPostAll')}";
+    var editsubmiturl="{:U('Admin/Post/edit')}";
+    function  addSubmit(){
+        var username=$('#username').val();var password=$('#password').val();var truename=$('#truename').val();
+        var phone=$('#phone').val(); var org=$('#org').val();var partyBranch=$('#partyBranch').val();
+        var type=$('#type').val();  var status=$('#status').val();var id=$('#').val();
+        var headPic = null,
+                picture = [];
+        $('li.upload-pic-btn').siblings('li').each(function() {
+            var imgUrl = $(this).attr('imgUrl');
+            if (imgUrl) picture.push(imgUrl);
+
+        });
+        if (picture.length > 0) {
+            param.picture = JSON.stringify(picture);
+            param.headpic = picture[0];
+
+        }
+        var param = {
+            "id":id,
+            "username": username,
+            "password": password,
+            "truename": truename,
+            "phone": phone,
+            "org": org,
+            "partyBranch": partyBranch,
+            "type": type,
+            "status": status,
+            "headpic":picture[0]
+        };
+        if (picture.length > 0) {
+            param.picture = JSON.stringify(picture);
+            param.headpic = picture[0];
+
+        }
+        console.log( param.headpic);
+        $.ajax({
+            url:editsubmiturl,
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            data:param,
+            success: function (data) {
+                console.log("成功"+data);
+            },
+            error: function (data) {
+                console.log("失败"+data);
+            }
+        })
+
+    }
+</script>
+</body>
+</html>

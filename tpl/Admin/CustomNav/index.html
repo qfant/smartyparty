@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="__EASYUI__/themes/default/easyui.css" rel="stylesheet" />
+	<link href="__EASYUI__/themes/color.css" rel="stylesheet" />
+	<link href="__EASYUI__/themes/icon.css" rel="stylesheet" />
+	<script src="__EASYUI__/jquery.min.js"></script>
+	<script src="__EASYUI__/jquery.easyui.min.js"></script>
+	<script src="__EASYUI__/ajaxSetup.js"></script>
+    <script src="__EASYUI__/common.js"></script>
+	<script src="__EASYUI__/locale/easyui-lang-zh_CN.js"></script>
+</head>
+<body style="padding: 0">
+<div id='Loading'><image src='__PUBLIC_IMAGES__/loading.gif'/>加载中....</div>
+<script src="__ADMIN_JS__/CustomNav.js" type="text/javascript" charset="utf-8"></script>
+<table id="CustomMenuGrid" class="easyui-treegrid" style="width:92%;height:800px" url="{:U('Admin/CustomNav/Menus')}" toolbar="#toolbar" pagination="true" idField="id" treeField="name" >
+	<thead>
+	<tr>
+		<th field="name" width="200">菜单名称</th>
+		<th field="kind" width="200" formatter="kindAction">菜单类型</th>
+
+		<th field="kindcontent" width="200">菜单值</th>
+		<th field="order_number" width="100">菜单排序</th>
+		<th field="action" width="200" align="center" formatter="formatAction">操作</th>
+	</tr>
+	</thead>
+</table>
+<div id="toolbar" style="align:right">
+	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newMenu()">添加自定义菜单</a>
+</div>
+<!-- 添加 -->
+<div id="Customdlg" class="easyui-dialog" title="添加菜单" style="width:680px;padding:10px 20px"
+	 closed="true" buttons="#dlg-buttons"  modal="true">
+	<form id="CustomNavfm" method="post">
+		<table>
+			<tr>
+				<td>菜单名称:</td>
+				<td><input name="name" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+			</tr>
+			<tr>
+				<td>上级菜单:</td>
+				<td>
+					<input id="pid" name="pid" url="{:U('Admin/CustomNav/menuLevel',array('pid'=>0))}" valueField="id" textField="name">
+				</td>
+			</tr>
+			<tr>
+				<td>菜单类型 :</td>
+				<td>
+					<input type="radio" name="kind" onclick="shownews(1)" value="1">命令
+					<input type="radio" name="kind" onclick="shownews(1)" value="2">链接
+					<input type="radio" name="kind" onclick="shownews(2)" value="3">自定义图文
+				</td>
+			</tr>
+			<tr id="news" style="display:none">
+				<td colspan="2">
+					<table>
+
+						<tr>
+							<td style="width: 114px;">标题：</td>
+							<td><input type="text" name="title" class="easyui-textbox" data-options="delay:1000,height:30,width:174"></td>
+						</tr>
+						<tr>
+							<td class="label">上传图片：</td>
+							<td><input type="file" name="upload"></td>
+						</tr>
+						<tr>
+							<td class="label">描述内容：</td>
+							<td><textarea name="description" cols="50" rows="5"></textarea></td>
+						</tr>
+						<tr>
+							<td class="label">链接地址：</td>
+							<td><input name="linkurl" type="text" class="easyui-textbox" data-options="delay:1000,height:30,width:174" ></td>
+						</tr>
+						<input type="hidden" name="article_cat" value="-1">
+						<input type="hidden" name="article_id" value="">
+						<input type="hidden" name="file_url" value="">
+					</table>
+				</td>
+			</tr>
+			<tr id="menuvalue">
+				<td class="label">菜单值 :</td>
+				<td><input type="text " class="easyui-textbox" name="kindcontent"  value=""></td>
+			</tr>
+			<tr>
+				<td class="label">排序 :</td>
+				<td><input type="text" name="order_number" size="5" value="">（越大越靠前）</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="addMenu()" style="width:90px">保存</a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">取消</a></td>
+			</tr>
+		</table>
+
+	</form>
+</div>
+<div id="CustomNavdlgEdit" class="easyui-dialog" title="编辑菜单" style="width:680px;padding:10px 20px"
+	 closed="true" buttons="#dlg-buttons"  modal="true">
+	<form id="CustomNavfmEdit" method="post">
+		<input name="id"  type="hidden" data-options="delay:1000,required:true,height:30" />
+		<table>
+			<tr>
+				<td>菜单名称:</td>
+				<td><input name="name" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+			</tr>
+			<tr>
+				<td>上级菜单:</td>
+				<td>
+					<input name="pid" class="easyui-combobox pidedit" valueField="id" textField="name" >
+				</td>
+			</tr>
+			<tr>
+				<td>菜单类型 :</td>
+				<td>
+					<input type="radio" name="kind" onclick="show(1)" value="1">命令
+					<input type="radio" name="kind" onclick="show(1)" value="2">链接
+					<input type="radio" name="kind" onclick="show(2)"value="3">自定义图文
+				</td>
+			</tr>
+			<tr id="news1" style="display:none">
+				<td colspan="2">
+					<table>
+
+						<tr>
+							<td style="width: 114px;">标题：</td>
+							<td><input type="text" name="title" class="easyui-textbox" data-options="delay:1000,height:30,width:174"></td>
+						</tr>
+						<tr>
+							<td class="label">上传图片：</td>
+							<td><input type="file" name="upload"></td>
+						</tr>
+						<tr>
+							<td class="label">描述内容：</td>
+							<td><textarea name="description" cols="50" rows="5"></textarea></td>
+						</tr>
+						<tr>
+							<td class="label">链接地址：</td>
+							<td><input name="linkurl" type="text" class="easyui-textbox" data-options="delay:1000,height:30,width:174" ></td>
+						</tr>
+						<input type="hidden" name="article_cat" value="-1">
+						<input type="hidden" name="article_id" value="">
+						<input type="hidden" name="file_url" value="">
+					</table>
+				</td>
+			</tr>
+			<tr id="menuvalue1">
+				<td class="label">菜单值 :</td>
+				<td><input type="text " class="easyui-textbox" name="kindcontent"  value=""></td>
+			</tr>
+			<tr>
+				<td class="label">排序 :</td>
+				<td><input type="text" name="order_number" size="5" value="">（越大越靠前）</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="editMenuSubmit()" style="width:90px">保存</a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#CustomNavdlgEdit').dialog('close')" style="width:90px">取消</a></td>
+			</tr>
+		</table>
+
+	</form>
+</div>
+<script type="text/javascript">
+	var addCustomNavUrl="{:U('Admin/CustomNav/add')}";
+	var CustomerNavLevelUrl="{:U('Admin/CustomNav/menuLevel',array('pid'=>0))}";
+	var editCustomerNavUrl="{:U('Admin/CustomNav/edit')}";
+	var deleteCustomerNavUrl="{:U('Admin/CustomNav/delete')}";
+</script>
+</body>
+</html>

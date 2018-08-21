@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <script src="__EASYUI__/jquery.min.js"></script>
+    <script src="__EASYUI__/jquery.easyui.min.js"></script>
+    <script src="__EASYUI__/ajaxSetup.js"></script>
+    <script src="__EASYUI__/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" href="__EASYUI__/super/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__EASYUI__/super/superRed.css" id="themeCss">
+    <script src="__EASYUI__/super/super.js"></script>
+    <script src="__ADMIN_JS__/index.js" type="text/javascript" charset="utf-8"></script>
+
+    <link href="__PUBLIC__/statics/css/admin.css" rel="stylesheet" />
+    <script src="__EASYUI__/common.js"></script>
+    <script src="__EASYUI__/formatter.js"></script>
+    <script src="__EASYUI__/extend/validate.js"></script>
+    <script src="__KINDEDITOR__/kindeditor-all.js"></script>
+    <script src="__KINDEDITOR__/lang/zh-CN.js"></script>
+</head>
+<body style="padding: 0">
+<div id='Loading'><image src='__PUBLIC_IMAGES__/loading.gif'/>加载中....</div>
+<script src="__ADMIN_JS__/AppWeiXin.js" type="text/javascript" charset="utf-8"></script>
+<table id="appGrid" class="easyui-datagrid" style="width:92%;height:660px" url="{:U('Admin/AppWeixin/ajaxAppList')}" pagination="true"  toolbar="#toolbar_AppWeiXin" singleSelect="true" rownumbers="true" idField="id" treeField="name" pageSize="20">
+    <thead>
+    <tr>
+        <th field="appid" width="200" >appid</th>
+        <th field="appsecert" width="200" >appsecert</th>
+        <th field="accesstoken" width="200" >access token</th>
+    </tr>
+    </thead>
+</table>
+<div id="toolbar_AppWeiXin">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-plus" plain="true" onclick="addAppNav()">添加</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-edit" plain="true" onclick="editAppNav()">编辑</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-remove" plain="true" onclick="destroyAppNav()">删除</a>
+</div>
+<!-- 添加 -->
+<div id="addApp" class="easyui-dialog" title="添加" style="width:400px;height:250px;padding:10px 20px;" closed="true" modal="true">
+    <form id="addAppForm" method="post">
+        <table>
+            <tr>
+                <td>appid:</td>
+                <td><input name="appid" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+            </tr>
+            <tr>
+                <td>appsecert:</td>
+                <td>
+                    <input name="appsecert" class="easyui-textbox" data-options="delay:1000,required:true,validType:'checkFloat',height:30" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="addAppNavSubmit()" style="width:90px">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#addApp').dialog('close')" style="width:90px">取消</a></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+<div id="editApp" class="easyui-dialog" title="编辑" style="width:400px;height:250px;padding:10px 20px;" closed="true" modal="true">
+    <form id="editAppForm" method="post">
+        <input type="hidden" name="id" value="">
+        <table>
+            <tr>
+                <td>appid:</td>
+                <td><input name="appid" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+            </tr>
+            <tr>
+                <td>appsecert:</td>
+                <td>
+                    <input name="appsecert" class="easyui-textbox" data-options="delay:1000,required:true,validType:'checkFloat',height:30" />
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="editAppNavSubmit()" style="width:90px">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#editApp').dialog('close')" style="width:90px">取消</a></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+var  addAppWeiXinUrl="{:U('Admin/AppWeixin/addAppNav')}";
+var editAppWeiXinUrl="{:U('Admin/AppWeixin/editAppNav')}";
+var deleteAppWeiXinUrl="{:U('Admin/AppWeixin/deleteAppNav')}";
+</script>
+</body>
+</html>

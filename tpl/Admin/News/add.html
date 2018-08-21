@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <link href="__PUBLIC__/statics/hplus/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/animate.min.css" rel="stylesheet" />
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>添加</h5>
+                <div class="ibox-tools btn-group">
+                    <a class="btn" id="_back" href="{:U('Admin/News/index')}">
+                        <i class="fa fa-chevron-circle-left"></i><span>返回上一页</span>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <form class="form-horizontal m-t" id="commentForm" method="post"  >
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">标题：</label>
+                        <div class="col-sm-8">
+                            <input id="title" name="title" minlength="2" type="text" class="form-control" required="" aria-required="true">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">类型：</label>
+                        <div class="col-sm-2">
+                            <select class="form-control m-b" name="type" id="type">
+                                <option value="1">政策宣传</option>
+                                <option value="2">党建业务</option>
+                                <option value="3">工作动态</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">内容：</label>
+                        <div class="col-sm-8">
+                            <textarea id="intro" name="intro" class="form-control" aria-required="true"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">图片</label>
+                        <div class="col-sm-8">
+                            <div class="upload-picture-box">
+                                <ul>
+                                    <li class="upload-pic-btn">
+                                        <input type="file" number="1" accept="image/*">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-4 col-sm-offset-3">
+                                <button class="btn btn-primary" type="button" onclick="addSubm()">提交</button>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/statics/hplus/js/jquery.min.js?v=2.1.4"></script>
+<script src="__EASYUI__/ajaxSetup.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__PUBLIC__/statics/hplus/js/content.min.js?v=1.0.0"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/validate/jquery.validate.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/validate/messages_zh.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/demo/form-validate-demo.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/toastr/toastr.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/treeview/bootstrap-treeview.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/layer.min.js"></script>
+<link href="__PUBLIC__/statics/hplus/js/plugins/datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+<link href="__PUBLIC__/statics/hplus/js/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+<script src="__PUBLIC__/statics/hplus/js/plugins/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/layer.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/layer/laydate/laydate.js"></script>
+<script src="__PUBLIC__/statics/js/exif.min.js"></script>
+<script src="__PUBLIC__/statics/js/upload.min.js"></script>
+<script src="__PUBLIC__/statics/js/common.js"></script>
+<script src="__PUBLIC__/statics/js/createMeeting.js"></script>
+
+<script src="__PUBLIC__/statics/hplus/js/bootstrap-select.js"></script>
+<link href="__PUBLIC__/statics/hplus/css/bootstrap-select.css" rel="stylesheet" />
+
+<script src="__KINDEDITOR__/kindeditor-all.js"></script>
+<script src="__KINDEDITOR__/lang/zh-CN.js"></script>
+<script>
+    var uploadimgurl="{:U('Admin/Index/upLoadFile')}";
+    var addsubmiturlNews="{:U('Admin/News/add')}";
+
+    function  addSubm(){
+        var title=$('#title').val();var intro=$('#intro').val();var type=$('#type').val();
+        var headpic = null,
+            picture = [];debugger;
+        $('li.upload-pic-btn').siblings('li').each(function() {
+            var imgUrl = $(this).attr('imgUrl');
+            if (imgUrl) picture.push(imgUrl);
+
+        });
+        var param = {
+            "title": title,
+            "intro": intro,
+            "type": type,
+            "headpic":picture[0]
+        };
+        if (picture.length > 0) {
+            param.picture = JSON.stringify(picture);
+            param.headpic = picture[0];
+
+        }
+        console.log( "tupian  "+param.headpic);
+        $.ajax({
+            url:addsubmiturlNews,
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            data:param,
+            cache:false,//false是不缓存，true为缓存
+            async:true,//true为异步，false为同步
+            success: function (data) {
+                location.href="{:U('Admin/News/index')}";
+            },
+            error: function (data) {
+                location.href="{:U('Admin/News/index')}";
+            }
+        })
+
+    }
+
+
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('#intro', {
+            afterBlur:function(){
+                this.sync();
+            }
+        });
+    });
+
+</script>
+</body>
+</html>
+

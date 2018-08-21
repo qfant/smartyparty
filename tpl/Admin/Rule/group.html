@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>管理后台</title>
+	<script src="__EASYUI__/jquery.min.js"></script>
+	<script src="__EASYUI__/jquery.easyui.min.js"></script>
+	<script src="__EASYUI__/ajaxSetup.js"></script>
+	<script src="__EASYUI__/locale/easyui-lang-zh_CN.js"></script>
+	<link rel="stylesheet" href="__EASYUI__/super/css/font-awesome.min.css">
+	<link rel="stylesheet" href="__EASYUI__/super/superRed.css" id="themeCss">
+	<script src="__EASYUI__/super/super.js"></script>
+	<script src="__ADMIN_JS__/index.js" type="text/javascript" charset="utf-8"></script>
+
+	<link href="__PUBLIC__/statics/css/admin.css" rel="stylesheet" />
+	<script src="__EASYUI__/common.js"></script>
+	<script src="__EASYUI__/formatter.js"></script>
+	<script src="__EASYUI__/extend/validate.js"></script>
+	<script src="__KINDEDITOR__/kindeditor-all.js"></script>
+	<script src="__KINDEDITOR__/lang/zh-CN.js"></script>
+	<script type="text/javascript">
+		var addGroupUrl="{:U('Admin/Rule/add_group')}";
+		var editGroupUrl="{:U('Admin/Rule/edit_group')}";
+		var ajaxAuthTreeUrl="{:U('Admin/Rule/ajaxAuthTree')}";
+		var ruleGroupUrl="{:U('Admin/Rule/rule_group')}";
+		var deleteGroupUrl="{:U('Admin/Rule/delete_group')}";
+	</script>
+</head>
+<body style="padding: 0">
+<div id='Loading'><image src='__PUBLIC_IMAGES__/loading.gif'/>加载中....</div>
+<script src="__ADMIN_JS__/group.js" type="text/javascript" charset="utf-8"></script>
+<table id="groupGrid" class="easyui-datagrid" url="{:U('Admin/Rule/ajaxGroup')}" pagination="true"  toolbar="#toolbar_group" singleSelect="true">
+	<thead>
+	<tr>
+		<th field="title" width="200" >用户组名称</th>
+	</tr>
+	</thead>
+</table>
+<div id="toolbar_group">
+	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-plus" plain="true" onclick="addGroup()">添加</a>
+	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-edit" plain="true" onclick="editGroup()">编辑</a>
+	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-remove" plain="true" onclick="destroyGroup()">删除</a>
+	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-user" plain="true" onclick="giveAuth()">分配权限</a>
+</div>
+<!-- 添加 -->
+<div id="addGroup" class="easyui-dialog" title="添加" style="width:400px;padding:10px 20px;" closed="true" modal="true">
+	<form id="addGroupForm" method="post">
+		<table>
+			<tr>
+				<td>用户组名称:</td>
+				<td><input name="title" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="addGroupSubmit()" style="width:90px">保存</a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#addGroup').dialog('close')" style="width:90px">取消</a></td>
+			</tr>
+		</table>
+
+	</form>
+</div>
+<div id="editGroup" class="easyui-dialog" title="编辑" style="width:400px;padding:10px 20px;" closed="true" modal="true">
+	<form id="editGroupForm" method="post">
+		<input type="hidden" name="id" value="">
+		<table>
+			<tr>
+				<td>名称:</td>
+				<td><input name="title" class="easyui-textbox" data-options="delay:1000,required:true,height:30" id="editRuleTitle"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="editGroupSubmit()" style="width:90px">保存</a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#editGroup').dialog('close')" style="width:90px">取消</a></td>
+			</tr>
+		</table>
+
+	</form>
+</div>
+<div id="giveAuthGroup" class="easyui-dialog" title="分配权限" style="width:400px;padding:10px 20px;height: 600px;" closed="true" modal="true">
+	<form id="giveAuthForm" method="post">
+		<ul id="authtree" class="easyui-tree" ></ul>
+
+	</form>
+</div>
+</body>
+</html>

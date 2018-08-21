@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>管理后台</title>
+	<script src="__EASYUI__/jquery.min.js"></script>
+	<script src="__EASYUI__/jquery.easyui.min.js"></script>
+	<script src="__EASYUI__/ajaxSetup.js"></script>
+	<script src="__EASYUI__/locale/easyui-lang-zh_CN.js"></script>
+	<link rel="stylesheet" href="__EASYUI__/super/css/font-awesome.min.css">
+	<link rel="stylesheet" href="__EASYUI__/super/superRed.css" id="themeCss">
+	<script src="__EASYUI__/super/super.js"></script>
+	<script src="__ADMIN_JS__/index.js" type="text/javascript" charset="utf-8"></script>
+
+	<link href="__PUBLIC__/statics/css/admin.css" rel="stylesheet" />
+	<script src="__EASYUI__/common.js"></script>
+	<script src="__EASYUI__/formatter.js"></script>
+	<script src="__EASYUI__/extend/validate.js"></script>
+	<script src="__KINDEDITOR__/kindeditor-all.js"></script>
+	<script src="__KINDEDITOR__/lang/zh-CN.js"></script>
+</head>
+<body style="padding: 0">
+<div id='Loading'><image src='__PUBLIC_IMAGES__/loading.gif'/>加载中....</div>
+<script src="__ADMIN_JS__/nav.js" type="text/javascript" charset="utf-8"></script>
+<table id="menuGrid" class="easyui-treegrid" url="{:U('Admin/Nav/Menus')}" toolbar="#toolbar_nav" pagination="true" idField="id" treeField="name" >
+	<thead>
+	<tr>
+		<th field="name" width="200">菜单名称</th>
+		<th field="mca" width="200">链接地址</th>
+		<th field="ico" width="100">菜单图标</th>
+		<th field="description" width="200">菜单描述</th>
+		<th field="order_number" width="100">菜单排序</th>
+	</tr>
+	</thead>
+</table>
+<div id="toolbar_nav">
+	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-plus" plain="true" onclick="newMenu()">添加</a>
+	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-edit" plain="true" onclick="editMenu()">编辑</a>
+	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-remove" plain="true" onclick="destroyMenu()">删除</a>
+</div>
+<!-- 添加 -->
+<div id="dlg" class="easyui-dialog" title="添加菜单" style="width:400px;padding:10px 20px"
+	 closed="true" buttons="#dlg-buttons"  modal="true">
+	<form id="fm" method="post">
+		<table>
+			<tr>
+				<td>菜单名称:</td>
+				<td><input name="name" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+			</tr>
+			<tr>
+				<td>上级菜单:</td>
+				<td>
+					<input id="pid" name="pid" class="easyui-combobox"  url="{:U('Admin/Nav/menuLevel',array('pid'=>0))}" valueField="id" textField="name">
+				</td>
+			</tr>
+			<tr>
+				<td>链接:</td>
+				<td><input name="mca" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+			</tr>
+			<tr>
+				<td>图标:</td>
+				<td><input name="ico" id="ico" type="text" class="easyui-textbox" data-options="required:true,height:30,delay:1000"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="addMenu()" style="width:90px">保存</a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">取消</a></td>
+			</tr>
+		</table>
+
+	</form>
+</div>
+<div id="dlgEdit" class="easyui-dialog" title="编辑菜单" style="width:400px;padding:10px 20px"
+	 closed="true" buttons="#dlg-buttons"  modal="true">
+	<form id="fmEdit" method="post">
+		<input name="id"  type="hidden" data-options="delay:1000,required:true,height:30" />
+		<table>
+			<tr>
+				<td>菜单名称:</td>
+				<td><input name="name" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+			</tr>
+			<tr>
+				<td>上级菜单:</td>
+				<td>
+					<input name="pid" class="easyui-combobox pidedit" valueField="id" textField="name" >
+				</td>
+			</tr>
+			<tr>
+				<td>链接:</td>
+				<td><input name="mca" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+			</tr>
+			<tr>
+				<td>图标:</td>
+				<td><input name="ico" type="text" class="easyui-textbox" data-options="required:true,height:30,delay:1000"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="editMenuSubmit()" style="width:90px">保存</a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlgEdit').dialog('close')" style="width:90px">取消</a></td>
+			</tr>
+		</table>
+
+	</form>
+</div>
+
+<script type="text/javascript">
+	var addNavUrl="{:U('Admin/Nav/add')}";
+	var editNavUrl="{:U('Admin/Nav/edit')}";
+	var menuLevelUrl="{:U('Admin/Nav/menuLevel',array('pid'=>0))}";
+	var deleteNavUrl="{:U('Admin/Nav/delete')}";
+</script>
+</body>
+</html>

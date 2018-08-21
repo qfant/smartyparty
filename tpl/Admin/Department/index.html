@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <script src="__EASYUI__/jquery.min.js"></script>
+    <script src="__EASYUI__/jquery.easyui.min.js"></script>
+    <script src="__EASYUI__/ajaxSetup.js"></script>
+    <script src="__EASYUI__/locale/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" href="__EASYUI__/super/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__EASYUI__/super/superRed.css" id="themeCss">
+    <script src="__EASYUI__/super/super.js"></script>
+    <script src="__ADMIN_JS__/index.js" type="text/javascript" charset="utf-8"></script>
+
+    <link href="__PUBLIC__/statics/css/admin.css" rel="stylesheet" />
+    <script src="__EASYUI__/common.js"></script>
+    <script src="__EASYUI__/formatter.js"></script>
+    <script src="__EASYUI__/extend/validate.js"></script>
+    <script src="__KINDEDITOR__/kindeditor-all.js"></script>
+    <script src="__KINDEDITOR__/lang/zh-CN.js"></script>
+    <script type="text/javascript">
+        var addRuleUrl="{:U('Admin/Department/add')}";
+        var editRuleUrl="{:U('Admin/Rule/edit','','')}";
+        var deleteRuleUrl="{:U('Admin/Department/delete')}";
+        var ajaxRuleAllUrl="{:U('Admin/Rule/ajaxGroupAll')}";
+        var getRuleUrl = "{:U('Admin/Department/getDepartment')}";
+    </script>
+</head>
+<body>
+<div id='Loading'><image src='__PUBLIC_IMAGES__/loading.gif'/>加载中....</div>
+<script src="__ADMIN_JS__/department.js" type="text/javascript" charset="utf-8"></script>
+<table id="departmentGrid" class="easyui-treegrid" url="{:U('Admin/Department/ajaxDepartments')}" pagination="true" idField="id" treeField="name" toolbar="#toolbar">
+    <thead>
+    <tr>
+        <th field="name" width="200" >名称</th>
+        <th field="order_num" width="200" >排序</th>
+        <th field="action" width="200" align="center" formatter="formatAction">操作</th>
+    </tr>
+    </thead>
+
+</table>
+<div id="toolbar">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="fa fa-plus" plain="true" onclick="addDepartment(0)">添加</a>
+</div>
+<!-- 添加 -->
+<div id="addDepartment" class="easyui-dialog" title="添加" style="width:420px;padding:10px 20px;" closed="true" modal="true">
+    <form id="addDepartmentForm" method="post">
+        <table>
+            <tr>
+                <td>上级部门:</td>
+                <td><lablel class="parent"></lablel><input type="hidden" name="pid"  value="0"></td>
+            </tr>
+            <tr>
+                <td>名称:</td>
+                <td><input name="name" class="easyui-textbox" data-options="delay:1000,required:true,height:30" /></td>
+            </tr>
+            <tr>
+                <td>排序:</td>
+                <td><input name="order_num" class="easyui-numberbox" data-options="delay:1000,height:30" value="0"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="addDepartmentSubmit()" style="width:90px">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#addDepartment').dialog('close')" style="width:90px">取消</a></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+<div id="editDepartment" class="easyui-dialog" title="编辑" style="width:420px;padding:10px 20px;" closed="true" modal="true">
+    <form id="editDepartmentForm" method="post">
+        <table>
+            <tr>
+                <td>上级部门:</td>
+                <td><lablel class="editparent"></lablel><input type="hidden" name="pid" value="" id="editDepartmentPid"><input type="hidden" name="id" value="" id="editDepartmentId"></td>
+            </tr>
+            <tr>
+                <td>名称:</td>
+                <td><input name="name" class="easyui-textbox" data-options="delay:1000,required:true,height:30" id="editDepartmentName"/></td>
+            </tr>
+            <tr>
+                <td>排序:</td>
+                <td><input name="order_num" class="easyui-numberbox" data-options="delay:1000,height:30" value="0" id="editDepartmentSort"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="editDepartmentSubmit()" style="width:90px">保存</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#editDepartment').dialog('close')" style="width:90px">取消</a></td>
+            </tr>
+        </table>
+
+    </form>
+</div>
+<script type="text/javascript">
+    //$("input[name='islink'][value='0']").attr("checked",true);
+    var url;
+    function addDepartment(id){
+        $('#addDepartment').dialog('open').dialog('setTitle','增加部门');
+        $('#addDepartmentForm').form('clear');
+        url="{:U('Admin/Department/add')}";
+        if(id>0){
+            $("input[name='pid']").val(id);
+            $.getJSON("{:U('Admin/Department/getDepartment')}/id/"+id,function(data){
+                $(".parent").empty().append(data.name);
+            })
+        }else if(id==0){
+            $("input[name='pid']").val(id);
+        }
+    }
+    function addDepartmentSubmit(){
+        $('#addDepartmentForm').form('submit',{
+            url: url,
+            onSubmit: function(){
+                return $(this).form('validate');
+            },
+            success:function(data){
+                data=$.parseJSON(data);
+                if(data.status==1){
+                    $.messager.alert('Info', data.message, 'info');
+                    $('#addDepartment').dialog('close');
+                    $('#departmentGrid').treegrid('reload');
+                }else {
+                    $.messager.alert('Warning', data.message, 'info');
+                    $('#addDepartment').dialog('close');
+                    $('#departmentGrid').treegrid('reload');
+                }
+            }
+        });
+    }
+    function editDepartmentSubmit(){
+        url="{:U('Admin/Department/edit')}";
+        $('#editDepartmentForm').form('submit',{
+            url: url,
+            onSubmit: function(){
+                return $(this).form('validate');
+            },
+            success:function(data){
+                data=$.parseJSON(data);
+                if(data.status==1){
+                    $.messager.alert('Info', data.message, 'info');
+                    $('#editDepartment').dialog('close');
+                    $('#departmentGrid').treegrid('reload');
+                }else {
+                    $.messager.alert('Warning', data.message, 'info');
+                    $('#editDepartment').dialog('close');
+                    $('#departmentGrid').treegrid('reload');
+                }
+            }
+        });
+    }
+    //编辑会员对话窗
+    function editDepartment(id){
+        if(id>0){
+            $('#editDepartment').dialog('open').dialog('setTitle','编辑');
+            url ="{:U('Admin/Department/edit')}"+'/id/'+id;
+            $.getJSON("{:U('Admin/Department/getDepartment')}/id/"+id,function(data){
+                $("#editDepartmentId").val(data.id);
+                $("#editDepartmentPid").val(data.pid);
+                $("#editDepartmentName").textbox('setValue',data.name);
+                $("#editDepartmentSort").textbox('setValue',data.order_num);
+                $(".editparent").empty().append(data.pname);
+            })
+        }else{
+            $.messager.alert('Warning',"请选择要编辑的行", 'info');return false;
+        }
+    }
+    function destroyDepartment(){
+        var row = $('#departmentGrid').datagrid('getSelected');
+        if(row==null){
+            $.messager.alert('Warning',"请选择要删除的行", 'info');return false;
+        }
+        if (row){
+            $.messager.confirm('删除提示','真的要删除?',function(r){
+                if (r){
+                    var durl="{:U('Admin/Department/delete')}";
+                    $.getJSON(durl,{id:row.id},function(result){
+                        if (result.status){
+                            $('#departmentGrid').treegrid('reload');    // reload the user data
+                        } else {
+                            $.messager.alert('错误提示',result.message,'error');
+                        }
+                    },'json').error(function(data){
+                        var info=eval('('+data.responseText+')');
+                        $.messager.confirm('错误提示',info.message,function(r){});
+                    });
+                }
+            });
+        }
+    }
+    function formatAction(value,row,index){
+        id=row.id;
+        var add = '<a href="javascript:void(0);" onclick="addDepartment('+id+')">添加子部门</a> ';
+        var del = '<a href="javascript:void(0);" onclick="destroyDepartment('+id+')">删除</a>';
+        var edit = '<a href="javascript:void(0);" onclick="editDepartment('+id+')">编辑</a>';
+        return add+"&nbsp;&nbsp;"+edit+"&nbsp;&nbsp;"+del;
+    }
+    $(document).ready(InitTree);
+    function InitTree() {
+        var url="{:U('Admin/Department/ajaxDepartments')}";
+
+        $("#departmentGrid").treegrid(
+                {
+                    url: url,
+                    idField:'id',
+                    treeField:'name',
+                    autoRowHeight: true,
+                    height: $(window).height() - 150,
+                    striped:true,
+                    fitColumns: true,
+                    animate:false,
+                    rownumbers:false,
+                    onLoadSuccess:function()
+                    {
+                       $("#departmentGrid").treegrid("collapseAll");
+                        //   $("#departmentGrid").tree('expand', rooNode);
+                    }
+                }
+        );
+
+    }
+</script>
+</body>
+</html>
