@@ -69,8 +69,8 @@ class MemberController extends AdminBaseController{
                 $data['headpic']=I('post.headpic');
 
 
-                $branchData=D('Partybranch')->where(array('name'=> I('post.partybranch')))->field("id,name")->find();
-                $data['partybranch_id']=$branchData['id'];
+//                $branchData=D('Partybranch')->where(array('name'=> I('post.partybranch')))->field("id,name")->find();
+//                $data['partybranch_id']=$branchData['id'];
                 $depData=D('Department')->where(array('name'=>$data['org']))->find();
                 $data['department_id']=$depData['id'];
                 unset($data['id']);
@@ -117,9 +117,9 @@ class MemberController extends AdminBaseController{
                     $depData=D('Department')->where(array('name'=>$org))->find();
                     $data['department_id']=$depData['id'];
 
-                    //所属企业
-                    $branchData=D('Partybranch')->where(array('name'=> I('post.partybranch')))->field("id,name")->find();
-                    $data['partybranch_id']=$branchData['id'];
+//                    //所属企业
+//                    $branchData=D('Partybranch')->where(array('name'=> I('post.partybranch')))->field("id,name")->find();
+//                    $data['partybranch_id']=$branchData['id'];
                     //部门
                     $depData=D('Department')->where(array('name'=>$org))->find();
                     $data['department_id']=$depData['id'];
@@ -144,9 +144,9 @@ class MemberController extends AdminBaseController{
                 $depData=D('Department')->where(array('name'=>$org))->find();
                 $data['department_id']=$depData['id'];
 
-                //所属企业
-                $branchData=D('Partybranch')->where(array('name'=> I('post.partybranch')))->field("id,name")->find();
-                $data['partybranch_id']=$branchData['id'];
+//                //所属企业
+//                $branchData=D('Partybranch')->where(array('name'=> I('post.partybranch')))->field("id,name")->find();
+//                $data['partybranch_id']=$branchData['id'];
                 //部门
                 $depData=D('Department')->where(array('name'=>$org))->find();
                 $data['department_id']=$depData['id'];

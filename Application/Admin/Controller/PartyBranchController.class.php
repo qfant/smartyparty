@@ -78,8 +78,8 @@ class PartyBranchController extends AdminBaseController{
                 $this->success('保存失败',U('Admin/PartyBranch/index'));
             }
         }else {
-			$managers=D('Member')->field("id,truename")->order("id desc")->select();
-			$this->assign('managers',$managers);
+            $departs=D('Department')->where("pid !=0")->field("id,name")->select();
+            $this->assign('departs',$departs);
             $this->display();
         }
     }
@@ -116,16 +116,16 @@ class PartyBranchController extends AdminBaseController{
                 $this->success('保存失败',U('Admin/PartyBranch/index'));
             }
         }else {
-            $manager=D('Partybranch')->where(array('id'=>I('get.id')))->find();
-            $partybranch=D('Partymanager')->where(array('id'=>$manager['managerid']))->find();
-            $depData=D('Department')->where(array('id'=> $manager['department_id']))->find();
-            $this->assign('manager',$manager);
-			//print_r($manager);die;
-            $this->assign('deptName',$depData['name']);
-            $this->assign('partybranchname',$partybranch['name']);
-            $this->assign('partybranchid',$partybranch['id']);
-			$managers=D('Member')->field("id,truename")->order("id desc")->select();
-			$this->assign('managers',$managers);		
+            $partyBranch=D('Partybranch')->where(array('id'=>I('get.id')))->find();
+//            $partybranch=D('Partymanager')->where(array('id'=>$partyBranch['managerid']))->find();
+            $this->assign('partyBranch',$partyBranch);
+
+//            $this->assign('partybranchname',$partybranch['name']);
+//            $this->assign('partybranchid',$partybranch['id']);
+            $departs=D('Department')->where("pid !=0")->field("id,name")->select();
+            $this->assign('departs',$departs);
+			$member=D('Member')->where(array('id'=>$partyBranch['managerid']))->field("id,truename")->find();
+			$this->assign('member',$member);
             $this->display();
         }
     }
