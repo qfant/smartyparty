@@ -6,15 +6,16 @@ use Common\Controller\AdminBaseController;
  */
 class MemberController extends AdminBaseController{
     public function ajaxMemberList(){
-        $childs=D('Department')->getDepartmentList(session('user.data')['department_id']);
-        $childs = substr($childs,0,strlen($childs)-1);
+        //$childs=D('Department')->getDepartmentList(session('user.data')['department_id']);
+        //$childs = substr($childs,0,strlen($childs)-1);
         //print_r($childs);die;
         $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
         $rows = isset($_GET['rows']) ? intval($_GET['rows']) : 10;
         $username=I("get.username");
         $offset = ($page-1)*$rows;
-        $countsql="select count(m.id) as total from qfant_member m where 1=1 and m.department_id in (".$childs.")";
-        $sql="select m.*,t.name AS departmentName,b.name as partybranchName ,p.name as pname from qfant_member m LEFT JOIN qfant_department t ON m.department_id=t.id LEFT JOIN qfant_partybranch b ON m.partybranch_id=b.id left join qfant_post p  on p.id= m.type where 1=1  AND m.department_id in  (".$childs.")";
+//        $countsql="select count(m.id) as total from qfant_member m where 1=1 and m.department_id in (".$childs.")";
+        $countsql="select count(m.id) as total from qfant_member m where 1=1 ";
+        $sql="select m.*,t.name AS departmentName,b.name as partybranchName ,p.name as pname from qfant_member m LEFT JOIN qfant_department t ON m.department_id=t.id LEFT JOIN qfant_partybranch b ON m.partybranch_id=b.id left join qfant_post p  on p.id= m.type where 1=1  ";
         $param=array();
         if(!empty($username)){
             array_push($param,'%'.$username.'%');
