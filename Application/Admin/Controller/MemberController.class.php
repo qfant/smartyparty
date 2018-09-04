@@ -19,8 +19,8 @@ class MemberController extends AdminBaseController{
         $param=array();
         if(!empty($username)){
             array_push($param,'%'.$username.'%');
-            $countsql.=" and m.username like '%s'";
-            $sql.=" and m.username like '%s'";
+            $countsql.=" and m.truename like '%s'";
+            $sql.=" and m.truename like '%s'";
         }
 
 
