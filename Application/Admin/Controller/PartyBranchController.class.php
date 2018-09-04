@@ -135,20 +135,22 @@ class PartyBranchController extends AdminBaseController{
      */
     public function delete(){
         $id=I('get.id');
-        $map=array(
-            'id'=>$id
-        );
-        $map1=array('orderid'=>$id);
-        $result1=D('Driverorder')->deleteData($map1);//删除装车与订单关联的表
-        $result=D('Order')->deleteData($map);
+        $map1=array('id'=>$id);
+        $result=D('Partybranch')->deleteData($map1);//删除装车与订单关联的表
         if($result){
-            $message['status']=1;
-            $message['message']='删除成功';
+            $this->success("删除成功",U('Admin/PartyBranch/index'));
         }else {
-            $message['status']=0;
-            $message['message']='删除失败';
+            $this->success("删除失败",U('Admin/PartyBranch/index'));
         }
-        $this->ajaxReturn($message,'JSON');
+    }
+    public function reset(){
+        $id=I('get.id');
+        $result=D('Partybranch')->where(array('id'=>$id))->save(array('longitude'=>0,'latitude'=>0));
+        if($result){
+            $this->success("重置成功",U('Admin/PartyBranch/index'));
+        }else {
+            $this->success("重置失败",U('Admin/PartyBranch/index'));
+        }
     }
     public function ajaxPartyBranchAll(){
         $departmentId=I("get.departmentId");
