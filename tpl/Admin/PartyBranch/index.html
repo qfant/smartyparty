@@ -56,6 +56,7 @@
     var url="{:U('Admin/PartyBranch/ajaxPartyBranchList')}";
     var editNewsUrl="{:U('Admin/PartyBranch/edit')}";
     var deleteNewsUrl="{:U('Admin/PartyBranch/delete')}";
+    var resetUrl="{:U('Admin/PartyBranch/reset')}";
     $(document).ready(function() {
         $.jgrid.defaults.styleUI = "Bootstrap";
         $("#news_list").jqGrid({
@@ -92,11 +93,12 @@
                 index: "intro",
                 width: 100,
             },{
-                label: '操作', name: '', index: 'operate', width: 50, align: 'center',
+                label: '操作', name: '', index: 'operate', width: 100, align: 'center',
                 formatter: function (cellvalue, options, rowObject) {
                     var detail='<div class="op"></div><div class="ibox-tools btn-group" style="float:left;">' +
                         '<a class="btn" href="'+editNewsUrl+'/id/'+rowObject['id']+'"><i class="fa fa-pencil-square-o"></i><span>编辑</span></a>' +
-                        '<a class="btn" href="'+deleteNewsUrl+'/id/'+rowObject['id']+'"><i class="fa fa-trash"></i><span>删除</span></a></div></div>';
+                        '<a class="btn" href="'+deleteNewsUrl+'/id/'+rowObject['id']+'"><i class="fa fa-trash"></i><span>删除</span></a>'+
+                        '<a class="btn" href="'+resetUrl+'/id/'+rowObject['id']+'"><i class="fa fa-ban"></i><span>重置经纬度</span></a></div></div>';
                     return detail;
                 },
             }],
