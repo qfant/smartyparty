@@ -12,8 +12,8 @@ class WorkLogController extends AdminBaseController{
         $rows = isset($_GET['rows']) ? intval($_GET['rows']) : 10;
         $name=I("get.name");
         $offset = ($page-1)*$rows;
-        $countsql="select count(w.id) AS total from qfant_worklog w WHERE 1=1";
-        $sql="select * from qfant_worklog w  WHERE 1=1";
+        $countsql="select count(w.id) AS total from qfant_worklog w ,qfant_member m WHERE w.member_id = m.id";
+        $sql="select m.truename,w.* from qfant_worklog w,qfant_member m WHERE w.member_id = m.id";
         $param=array();
         if(!empty($name)){
             array_push($param,'%'.$name.'%');
