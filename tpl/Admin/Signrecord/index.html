@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>管理后台</title>
+    <link href="__PUBLIC__/statics/hplus/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link href="__PUBLIC__/statics/hplus/css/style.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/animate.min.css" rel="stylesheet" />
+    <link href="__PUBLIC__/statics/hplus/css/plugins/jqgrid/ui.jqgridffe4.css" rel="stylesheet">
+    <link href="__PUBLIC__/statics/hplus/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <style>
+        #alertmod_table_list_2 {
+            top: 900px !important;
+        }
+    </style>
+
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox ">
+                <!--<div class="ibox-title">
+                    <h5>签到管理</h5>
+                    <div class="ibox-tools btn-group">
+                        <a type="button" class="btn" id="_add" href="{:U('Admin/Signrecord/add')}">
+                            <i class="fa fa-plus-square"></i><span>新增</span>
+                        </a>
+                    </div>
+                </div>-->
+                <div class="ibox-content">
+                    <div class="form-group form-inline">
+                        <input class="form-control title" id="memberName" placeholder="指导员名称" name="memberName">
+                        <input class="form-control title" id="name" placeholder="企业名称" name="name">
+                        <button class="btn btn-primary" onclick="search()">查询</button>
+                    </div>
+                    <div class="jqGrid_wrapper">
+                        <table id="news_list"></table>
+                        <div id="pager_news_list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/statics/hplus/js/jquery.min.js?v=2.1.4"></script>
+<script src="__EASYUI__/ajaxSetup.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/toastr/toastr.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/peity/jquery.peity.min.js"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
+<script src="__PUBLIC__/statics/hplus/js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
+<script src="__PUBLIC__/statics/hplus/js/content.min.js?v=1.0.0"></script>
+<script>
+    var url="{:U('Admin/Signrecord/ajaxSignrecordList')}";
+    var editNewsUrl="{:U('Admin/Signrecord/edit')}";
+    var deleteNewsUrl="{:U('Admin/Signrecord/delete')}";
+    var resetUrl="{:U('Admin/Signrecord/reset')}";
+    $(document).ready(function() {
+        $.jgrid.defaults.styleUI = "Bootstrap";
+        $("#news_list").jqGrid({
+            url: url,
+            datatype: "json",
+            height: 600,
+            autowidth: true,
+            shrinkToFit: true,
+            rowNum: 15,
+            rowList: [10, 20, 30],
+            colModel: [ {
+                label:"指导员名称",
+                name: "truename",
+                index: "truename",
+                width: 50,
+            },{
+                label:"企业名称",
+                name: "name",
+                index: "name",
+                width: 50,
+            },{
+                label:"签到/签退",
+                name: "type",
+                index: "type",
+                width: 50,
+                formatter: function (cellvalue, options, rowObject) {
+                    if (cellvalue == '1') return "签到";else if(cellvalue == '2')  return "签退";
+                },
+            },{
+                name:"latitude",
+                index:"latitude",
+                hidden:true
+            },{
+                name:"longitude",
+                index:"longitude",
+                hidden:true
+            },{
+                label:"地址",
+                name:"",
+                index:"",
+                width:50,
+                formatter:function(cellvalue,options,rowObject){
+                    return "<a href=\"#\" style=\"color:#f60\" onclick=\"Modify(" + rowObject.id + ")\">地址</a>"
+                }
+            },{
+                label:"时间",
+                name: "signtime",
+                index: "signtime",
+                width: 50,
+            },/*{
+                label: '操作', name: '', index: 'operate', width: 100, align: 'center',
+                formatter: function (cellvalue, options, rowObject) {
+                    var detail='<div class="op"></div><div class="ibox-tools btn-group" style="float:left;">' +
+                        '<a class="btn" href="'+editNewsUrl+'/id/'+rowObject['id']+'"><i class="fa fa-pencil-square-o"></i><span>编辑</span></a>' +
+                        '<a class="btn" href="'+deleteNewsUrl+'/id/'+rowObject['id']+'"><i class="fa fa-trash"></i><span>删除</span></a>'+
+                        '<a class="btn" href="'+resetUrl+'/id/'+rowObject['id']+'"><i class="fa fa-ban"></i><span>重置经纬度</span></a></div></div>';
+                    return detail;
+                },
+            }*/],
+            viewrecords: true,
+            pager: "#pager_news_list",
+
+        });
+    });
+</script>
+</body>
+<script type="text/javascript">
+    function search(){
+        var name = $("#name").val();
+        var memberName = $("#memberName").val();
+        var postJson = {name:name,memberName:memberName};
+        //传入查询条件参数
+        $("#news_list").jqGrid("setGridParam",{postData:postJson});
+        //每次提出新的查询都转到第一页
+        $("#news_list").jqGrid("setGridParam",{page:1});
+        //提交post并刷新表格
+        $("#news_list").jqGrid("setGridParam",{url:url}).trigger("reloadGrid");
+    }
+    /*$(function () {
+       $("#news_list").on("click","mark_data",function(){
+           var id = $("#news_list").jqGrid('getGridParam','selrow');
+           var rowData = $("#news_list").jqGrid("getRowData",id);
+           var latitude = rowData.latitude;
+           var longitude = rowData.longitude;
+           alert(latitude+"****"+longitude);
+       })
+    });*/
+    function Modify(id){
+        var mapURL="{:U('Admin/Signrecord/map')}";
+        //var id = $("#news_list").jqGrid('getGridParam','selrow');
+        var rowData = $("#news_list").jqGrid("getRowData",id);
+        var latitude = rowData.latitude;
+        var longitude = rowData.longitude;
+        window.open(mapURL+'?latitude='+latitude+'&longitude='+longitude);
+
+        //theLocation(latitude,longitude);
+        //console.log(id+"****"+longitude);
+    }
+</script>
+<!--<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point(116.331398,39.897445),11);
+    map.enableScrollWheelZoom(true);
+
+    // 用经纬度设置地图中心点
+    function theLocation(latitude,longitude){
+        //if(document.getElementById("longitude").value != "" && document.getElementById("latitude").value != ""){
+            map.clearOverlays();
+            //var new_point = new BMap.Point(document.getElementById("longitude").value,document.getElementById("latitude").value);
+            var new_point = new BMap.Point(latitude,longitude);
+            var marker = new BMap.Marker(new_point);  // 创建标注
+            map.addOverlay(marker);              // 将标注添加到地图中
+            map.panTo(new_point);
+       // }
+    }
+</script>-->
+</html>

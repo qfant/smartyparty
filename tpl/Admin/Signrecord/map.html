@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #allmap{
+        height:900px;width:100%;
+    }
+</style>
+
+
+<script type="text/javascript">
+    function GetQueryString(name) //正则表达式
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    var latitude = GetQueryString("latitude");
+    var longitude = GetQueryString("longitude");
+    console.log(latitude+"****"+longitude);
+
+</script>
+
+<script type="text/javascript">
+    window.onload=function()//用window的onload事件，窗体加载完毕的时候
+    {
+        theLocation(latitude,longitude);
+    }
+</script>
+<body>
+<div id="allmap"></div>
+</body>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=LYlqv2I7y6K7hsTbof2usOPHGRsVXkNM"></script>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point(116.331398,39.897445),14);
+    map.enableScrollWheelZoom(true);
+
+    // 用经纬度设置地图中心点
+    function theLocation(latitude,longitude){
+        //if(document.getElementById("longitude").value != "" && document.getElementById("latitude").value != ""){
+        map.clearOverlays();
+        //var new_point = new BMap.Point(document.getElementById("longitude").value,document.getElementById("latitude").value);
+        var new_point = new BMap.Point(latitude,longitude);
+        var marker = new BMap.Marker(new_point);  // 创建标注
+        map.addOverlay(marker);              // 将标注添加到地图中
+        map.panTo(new_point);
+        // }
+    }
+</script>
+</html>
